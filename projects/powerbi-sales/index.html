@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Power BI Sales Analytics - Advanced sales dashboard case study.">
+    <title>Power BI Sales Analytics | Ashley Carr</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="../../assets/css/global.css">
+</head>
+<body class="bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-white">
+    <!-- Header -->
+    <header id="header" class="fixed top-0 w-full bg-white dark:bg-gray-900 shadow-sm z-50" x-data="headerComponent()" x-init="initHeader()">
+        <!-- Header content will be inserted by global.js -->
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-20 pb-20">
+        <!-- Hero Section -->
+        <section class="bg-white dark:bg-gray-900">
+            <div class="container-narrow py-16">
+                <div class="max-w-2xl">
+                    <a href="../../projects.html" class="text-blue-600 dark:text-blue-400 hover:underline mb-4 inline-block">← Back to Projects</a>
+                    <h1 class="text-5xl font-bold mb-4">Power BI Sales Analytics</h1>
+                    <p class="text-xl text-gray-600 dark:text-gray-400 mb-6">Advanced analytics dashboard providing real-time insights into pipeline, forecast, and revenue metrics.</p>
+                    
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-sm font-medium">Power BI</span>
+                        <span class="px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-sm font-medium">Power Query</span>
+                        <span class="px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-sm font-medium">DAX</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hero Image -->
+        <section class="bg-gray-200 dark:bg-gray-800">
+            <div class="container-narrow py-12">
+                <div class="bg-gray-300 dark:bg-gray-700 rounded-lg aspect-video flex items-center justify-center">
+                    <svg class="w-32 h-32 text-gray-400 dark:text-gray-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"></path>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Details -->
+        <section class="bg-gray-50 dark:bg-gray-950 py-16">
+            <div class="container-narrow">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                    <!-- Main Content -->
+                    <div class="md:col-span-2 space-y-8">
+                        <div>
+                            <h2 class="text-2xl font-bold mb-4">Overview</h2>
+                            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                                A fast-growing SaaS company needed real-time sales visibility across multiple regions and product lines. We designed and built a comprehensive Power BI reporting solution that transforms raw sales data into actionable insights.
+                            </p>
+                            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                                The solution provides sales leadership with instant access to pipeline metrics, forecast accuracy, revenue trends, and individual sales performance—enabling data-driven decision-making at all levels.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold mb-4">Challenge</h2>
+                            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                                The client faced these obstacles:
+                            </p>
+                            <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                                <li>• Sales data scattered across CRM, spreadsheets, and manual forecasts</li>
+                                <li>• Monthly reporting took 2+ days of manual data collection and consolidation</li>
+                                <li>• No real-time visibility into pipeline or forecast accuracy</li>
+                                <li>• Difficulty identifying underperforming regions or reps</li>
+                                <li>• No trend analysis or predictive insights</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold mb-4">Solution</h2>
+                            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                                We built a multi-dimensional reporting platform:
+                            </p>
+                            <ul class="space-y-3 text-gray-700 dark:text-gray-300">
+                                <li><strong>Data Integration:</strong> Automated ETL using Power Query to consolidate CRM, financial, and forecast data</li>
+                                <li><strong>Data Model:</strong> Dimensional model with facts and dimensions for drill-through analysis</li>
+                                <li><strong>Executive Dashboard:</strong> High-level metrics on revenue, pipeline, and forecast vs. actual</li>
+                                <li><strong>Sales Analytics:</strong> Regional and rep-level performance with trend analysis</li>
+                                <li><strong>Forecast Accuracy:</strong> Comparison of forecast vs. actual closes with variance analysis</li>
+                                <li><strong>Row-Level Security:</strong> Sales managers see only their region's data</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold mb-4">Key Features</h2>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-800">
+                                    <h3 class="font-semibold mb-2">Executive Summary</h3>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Top KPIs: revenue, pipeline, forecast, growth %</p>
+                                </div>
+                                <div class="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-800">
+                                    <h3 class="font-semibold mb-2">Pipeline Analysis</h3>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">By stage, probability, and expected close date</p>
+                                </div>
+                                <div class="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-800">
+                                    <h3 class="font-semibold mb-2">Forecast Accuracy</h3>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Forecast vs. actual with variance trends</p>
+                                </div>
+                                <div class="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-800">
+                                    <h3 class="font-semibold mb-2">Sales Performance</h3>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Rep and regional metrics with benchmarks</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold mb-4">Outcomes & Impact</h2>
+                            <div class="space-y-3">
+                                <div class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-4">
+                                    <p class="font-semibold text-green-800 dark:text-green-300">Reporting Time Reduced from 2 Days to Instant</p>
+                                    <p class="text-sm text-green-700 dark:text-green-400">Automated data refresh eliminates manual consolidation</p>
+                                </div>
+                                <div class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-4">
+                                    <p class="font-semibold text-green-800 dark:text-green-300">35% Improvement in Forecast Accuracy</p>
+                                    <p class="text-sm text-green-700 dark:text-green-400">Data-driven insights enable better pipeline planning</p>
+                                </div>
+                                <div class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-4">
+                                    <p class="font-semibold text-green-800 dark:text-green-300">Enabled Data-Driven Decision Making</p>
+                                    <p class="text-sm text-green-700 dark:text-green-400">Leadership now bases strategy on real-time insights</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold mb-4">Technical Stack</h2>
+                            <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                                <div class="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-800 text-center">
+                                    <p class="font-semibold text-sm">Power BI Desktop</p>
+                                    <p class="text-xs text-gray-600 dark:text-gray-400">Development</p>
+                                </div>
+                                <div class="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-800 text-center">
+                                    <p class="font-semibold text-sm">Power Query</p>
+                                    <p class="text-xs text-gray-600 dark:text-gray-400">ETL</p>
+                                </div>
+                                <div class="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-800 text-center">
+                                    <p class="font-semibold text-sm">DAX</p>
+                                    <p class="text-xs text-gray-600 dark:text-gray-400">Calculations</p>
+                                </div>
+                                <div class="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-800 text-center">
+                                    <p class="font-semibold text-sm">Salesforce</p>
+                                    <p class="text-xs text-gray-600 dark:text-gray-400">Data Source</p>
+                                </div>
+                                <div class="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-800 text-center">
+                                    <p class="font-semibold text-sm">Azure SQL</p>
+                                    <p class="text-xs text-gray-600 dark:text-gray-400">Warehouse</p>
+                                </div>
+                                <div class="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-800 text-center">
+                                    <p class="font-semibold text-sm">Premium Capacity</p>
+                                    <p class="text-xs text-gray-600 dark:text-gray-400">Hosting</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <aside class="space-y-6">
+                        <div class="bg-white dark:bg-gray-900 rounded-lg p-6 border border-gray-200 dark:border-gray-800">
+                            <h3 class="font-semibold mb-4">Project Info</h3>
+                            <div class="space-y-4 text-sm">
+                                <div>
+                                    <p class="text-gray-600 dark:text-gray-400 text-xs uppercase font-semibold mb-1">Type</p>
+                                    <p class="font-medium">Analytics Platform</p>
+                                </div>
+                                <div>
+                                    <p class="text-gray-600 dark:text-gray-400 text-xs uppercase font-semibold mb-1">Industry</p>
+                                    <p class="font-medium">SaaS</p>
+                                </div>
+                                <div>
+                                    <p class="text-gray-600 dark:text-gray-400 text-xs uppercase font-semibold mb-1">Duration</p>
+                                    <p class="font-medium">3 months</p>
+                                </div>
+                                <div>
+                                    <p class="text-gray-600 dark:text-gray-400 text-xs uppercase font-semibold mb-1">Users</p>
+                                    <p class="font-medium">50+</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white dark:bg-gray-900 rounded-lg p-6 border border-gray-200 dark:border-gray-800">
+                            <h3 class="font-semibold mb-4">Technologies</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs font-medium">Power BI</span>
+                                <span class="px-3 py-1 rounded-full bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-xs font-medium">Power Query</span>
+                                <span class="px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 text-xs font-medium">DAX</span>
+                                <span class="px-3 py-1 rounded-full bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 text-xs font-medium">Salesforce</span>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer" class="mt-20 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+        <!-- Footer content will be inserted by global.js -->
+    </footer>
+
+    <!-- Global Scripts -->
+    <script src="../../assets/js/global.js"></script>
+</body>
+</html>

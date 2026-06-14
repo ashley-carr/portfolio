@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Certifications - Ashley Carr's Microsoft certifications, applied skills, and professional credentials.">
+    <title>Certifications | Ashley Carr</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="assets/css/global.css">
+</head>
+<body class="bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-white">
+    <!-- Header -->
+    <header id="header" class="fixed top-0 w-full bg-white dark:bg-gray-900 shadow-sm z-50" x-data="headerComponent()" x-init="initHeader()">
+        <!-- Header content will be inserted by global.js -->
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-20 pb-20">
+        <!-- Page Header -->
+        <section class="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
+            <div class="container-narrow py-12">
+                <h1 class="text-4xl font-bold mb-2">Certifications & Credentials</h1>
+                <p class="text-lg text-gray-600 dark:text-gray-400">Microsoft certifications and applied skills demonstrating expertise across Power Platform, Dynamics 365, and Azure.</p>
+            </div>
+        </section>
+
+        <!-- Summary Stats -->
+        <section class="bg-gray-50 dark:bg-gray-950 py-12">
+            <div class="container-narrow">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div class="bg-white dark:bg-gray-900 rounded-lg p-6 border border-gray-200 dark:border-gray-800 text-center">
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400 mb-2">Total Certifications</p>
+                        <p id="stat-total" class="text-3xl font-bold text-gray-900 dark:text-white">0</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-900 rounded-lg p-6 border border-gray-200 dark:border-gray-800 text-center">
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400 mb-2">Active</p>
+                        <p id="stat-active" class="text-3xl font-bold text-green-600 dark:text-green-400">0</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-900 rounded-lg p-6 border border-gray-200 dark:border-gray-800 text-center">
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400 mb-2">Retired</p>
+                        <p id="stat-retired" class="text-3xl font-bold text-gray-600 dark:text-gray-400">0</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-900 rounded-lg p-6 border border-gray-200 dark:border-gray-800 text-center">
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400 mb-2">Applied Skills</p>
+                        <p id="stat-applied" class="text-3xl font-bold text-blue-600 dark:text-blue-400">0</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filters -->
+        <section class="bg-white dark:bg-gray-900 py-8 border-b border-gray-200 dark:border-gray-800">
+            <div class="container-narrow">
+                <div class="flex flex-wrap gap-3">
+                    <button class="filter-btn active px-6 py-2 rounded-full bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-medium transition-all hover:shadow-md" data-filter="all">
+                        All
+                    </button>
+                    <button class="filter-btn px-6 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white font-medium transition-all hover:shadow-md" data-filter="active">
+                        Active
+                    </button>
+                    <button class="filter-btn px-6 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white font-medium transition-all hover:shadow-md" data-filter="retired">
+                        Retired
+                    </button>
+                    <button class="filter-btn px-6 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white font-medium transition-all hover:shadow-md" data-filter="applied">
+                        Applied Skills
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Table/Cards -->
+        <section class="bg-gray-50 dark:bg-gray-950 py-12">
+            <div class="container-narrow">
+                <!-- Desktop Table -->
+                <div class="hidden md:block overflow-x-auto">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="border-b border-gray-300 dark:border-gray-700">
+                                <th class="text-left py-4 px-4 font-semibold text-gray-900 dark:text-white">Type</th>
+                                <th class="text-left py-4 px-4 font-semibold text-gray-900 dark:text-white">Title</th>
+                                <th class="text-left py-4 px-4 font-semibold text-gray-900 dark:text-white">Status</th>
+                                <th class="text-left py-4 px-4 font-semibold text-gray-900 dark:text-white">Issued</th>
+                            </tr>
+                        </thead>
+                        <tbody id="certifications-table-body">
+                            <!-- Populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Mobile Cards -->
+                <div id="certifications-cards" class="md:hidden space-y-4">
+                    <!-- Populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer" class="mt-20 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+        <!-- Footer content will be inserted by global.js -->
+    </footer>
+
+    <!-- Global Scripts -->
+    <script src="assets/js/global.js"></script>
+</body>
+</html>

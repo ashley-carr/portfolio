@@ -1,0 +1,368 @@
+[
+  {
+    "type": "Exam",
+    "title": "Microsoft Dynamics 365 Customer Experience Analyst",
+    "status": "Passed",
+    "issuedOn": "Mar 27, 2026"
+  },
+  {
+    "type": "Fundamentals",
+    "title": "GitHub Foundations",
+    "status": "Active",
+    "issuedOn": "Dec 28, 2025"
+  },
+  {
+    "type": "Applied Skill",
+    "title": "Microsoft Applied Skills: Prepare security and compliance to support Microsoft 365 Copilot",
+    "status": "Active",
+    "issuedOn": "Dec 12, 2025"
+  },
+  {
+    "type": "Applied Skill",
+    "title": "Microsoft Applied Skills: Generate reports with AI research agents",
+    "status": "Active",
+    "issuedOn": "Dec 8, 2025"
+  },
+  {
+    "type": "Applied Skill",
+    "title": "Microsoft Applied Skills: Streamline business workflows with AI chat",
+    "status": "Active",
+    "issuedOn": "Dec 8, 2025"
+  },
+  {
+    "type": "Exam",
+    "title": "GitHub Foundations",
+    "status": "Passed",
+    "issuedOn": "Dec 28, 2025"
+  },
+  {
+    "type": "Applied Skill",
+    "title": "Microsoft Applied Skills: Enhance agents with autonomous capabilities",
+    "status": "Active",
+    "issuedOn": "Nov 29, 2025"
+  },
+  {
+    "type": "Applied Skill",
+    "title": "Microsoft Applied Skills: Get started with identities and access using Microsoft Entra",
+    "status": "Active",
+    "issuedOn": "Nov 8, 2025"
+  },
+  {
+    "type": "Applied Skill",
+    "title": "Microsoft Applied Skills: Create agents in Microsoft Copilot Studio",
+    "status": "Active",
+    "issuedOn": "Nov 8, 2025"
+  },
+  {
+    "type": "Applied Skill",
+    "title": "Microsoft Applied Skills: Create and manage automated processes by using Power Automate",
+    "status": "Active",
+    "issuedOn": "Feb 23, 2025"
+  },
+  {
+    "type": "Applied Skill",
+    "title": "Microsoft Applied Skills: Create and manage model-driven apps with Power Apps and Dataverse",
+    "status": "Active",
+    "issuedOn": "Feb 23, 2025"
+  },
+  {
+    "type": "Applied Skill",
+    "title": "Microsoft Applied Skills: Create and manage canvas apps with Power Apps",
+    "status": "Active",
+    "issuedOn": "Feb 23, 2025"
+  },
+
+  {
+    "type": "Associate",
+    "title": "Microsoft Certified: Dynamics 365 Customer Experience Analyst Associate",
+    "status": "Active",
+    "issuedOn": "Mar 27, 2026"
+  },
+
+  {
+    "type": "Exam",
+    "title": "Dynamics 365 Fundamentals Finance and Operations Apps (ERP)",
+    "status": "Passed",
+    "issuedOn": "Jun 30, 2023"
+  },
+  {
+    "type": "Fundamentals",
+    "title": "Microsoft Certified: Dynamics 365 Fundamentals (ERP)",
+    "status": "Active",
+    "issuedOn": "Jun 30, 2023"
+  },
+
+  {
+    "type": "Exam",
+    "title": "Microsoft Dynamics 365 Fundamentals (CRM)",
+    "status": "Passed",
+    "issuedOn": "Jun 25, 2023"
+  },
+  {
+    "type": "Fundamentals",
+    "title": "Microsoft Certified: Dynamics 365 Fundamentals (CRM)",
+    "status": "Active",
+    "issuedOn": "Jun 25, 2023"
+  },
+
+  {
+    "type": "Exam",
+    "title": "Microsoft Azure AI Fundamentals",
+    "status": "Passed",
+    "issuedOn": "Jun 23, 2023"
+  },
+  {
+    "type": "Fundamentals",
+    "title": "Microsoft Certified: Azure AI Fundamentals",
+    "status": "Active",
+    "issuedOn": "Jun 23, 2023"
+  },
+
+  {
+    "type": "Exam",
+    "title": "Microsoft Power BI Data Analyst",
+    "status": "Passed",
+    "issuedOn": "Jun 18, 2023"
+  },
+
+  {
+    "type": "Exam",
+    "title": "Microsoft Azure Data Fundamentals",
+    "status": "Passed",
+    "issuedOn": "Jun 16, 2023"
+  },
+  {
+    "type": "Fundamentals",
+    "title": "Microsoft Certified: Azure Data Fundamentals",
+    "status": "Active",
+    "issuedOn": "Jun 16, 2023"
+  },
+
+  {
+    "type": "Exam",
+    "title": "Microsoft Dynamics 365 Customer Insights (Journeys) Functional Consultant",
+    "status": "Passed",
+    "issuedOn": "Jun 11, 2023"
+  },
+  {
+    "type": "Associate",
+    "title": "Microsoft Certified: Dynamics 365 Customer Insights (Journeys) Functional Consultant Associate",
+    "status": "Retired",
+    "issuedOn": "Jun 11, 2023"
+  },
+
+  {
+    "type": "Expert",
+    "title": "Microsoft Certified: Dynamics 365 + Power Platform Solution Architect Expert (Legacy with Power Apps)",
+    "status": "Retired",
+    "issuedOn": "Jun 22, 2021"
+  },
+  {
+    "type": "Expert",
+    "title": "Microsoft Certified: Dynamics 365 + Power Platform Solution Architect Expert",
+    "status": "Retired",
+    "issuedOn": "Jun 22, 2021"
+  },
+  {
+    "type": "Exam",
+    "title": "Microsoft Dynamics 365 + Power Platform Solution Architect",
+    "status": "Passed",
+    "issuedOn": "Jun 22, 2021"
+  },
+
+  {
+    "type": "Expert",
+    "title": "Microsoft Certified: Power Platform Solution Architect Expert",
+    "status": "Active",
+    "issuedOn": "Jun 23, 2021"
+  },
+  {
+    "type": "Exam",
+    "title": "Microsoft Power Platform Solution Architect",
+    "status": "Passed",
+    "issuedOn": "Jun 23, 2021"
+  },
+
+  {
+    "type": "Associate",
+    "title": "Microsoft Certified: Power Platform Developer Associate",
+    "status": "Active",
+    "issuedOn": "May 8, 2021"
+  },
+  {
+    "type": "Exam",
+    "title": "Microsoft Power Platform Developer",
+    "status": "Passed",
+    "issuedOn": "May 8, 2021"
+  },
+
+  {
+    "type": "Fundamentals",
+    "title": "Microsoft Certified: Security, Compliance, and Identity Fundamentals",
+    "status": "Active",
+    "issuedOn": "Apr 20, 2021"
+  },
+  {
+    "type": "Exam",
+    "title": "Microsoft Security, Compliance, and Identity Fundamentals",
+    "status": "Passed",
+    "issuedOn": "Apr 16, 2021"
+  },
+
+  {
+    "type": "Associate",
+    "title": "Microsoft Certified: Power BI Data Analyst Associate",
+    "status": "Active",
+    "issuedOn": "Mar 28, 2021"
+  },
+  {
+    "type": "Exam",
+    "title": "Analyzing Data with Microsoft Power BI",
+    "status": "Passed",
+    "issuedOn": "Mar 28, 2021"
+  },
+
+  {
+    "type": "Associate",
+    "title": "Microsoft Certified: Power Platform Functional Consultant Associate",
+    "status": "Active",
+    "issuedOn": "Jan 13, 2021"
+  },
+  {
+    "type": "Exam",
+    "title": "Microsoft Power Platform Functional Consultant",
+    "status": "Passed",
+    "issuedOn": "Jan 13, 2021"
+  },
+
+  {
+    "type": "Associate",
+    "title": "Microsoft Certified: Power Platform App Maker Associate",
+    "status": "Retired",
+    "issuedOn": "Jan 12, 2021"
+  },
+  {
+    "type": "Exam",
+    "title": "Microsoft Power Platform App Maker",
+    "status": "Passed",
+    "issuedOn": "Jan 12, 2021"
+  },
+
+  {
+    "type": "Exam",
+    "title": "Microsoft Power Apps + Dynamics 365 Developer",
+    "status": "Passed",
+    "issuedOn": "Dec 19, 2020"
+  },
+  {
+    "type": "Associate",
+    "title": "Microsoft Certified: Power Apps + Dynamics 365 Developer Associate",
+    "status": "Retired",
+    "issuedOn": "Dec 19, 2020"
+  },
+
+  {
+    "type": "Exam",
+    "title": "Microsoft Power Platform + Dynamics 365 Core",
+    "status": "Passed",
+    "issuedOn": "Dec 15, 2020"
+  },
+
+  {
+    "type": "Fundamentals",
+    "title": "Microsoft Certified: Azure Fundamentals",
+    "status": "Active",
+    "issuedOn": "Jul 9, 2020"
+  },
+  {
+    "type": "Exam",
+    "title": "Microsoft Azure Fundamentals",
+    "status": "Passed",
+    "issuedOn": "Jul 9, 2020"
+  },
+
+  {
+    "type": "Expert",
+    "title": "MCSE: Data Management and Analytics",
+    "status": "Active",
+    "issuedOn": "Jul 2, 2020"
+  },
+  {
+    "type": "Associate",
+    "title": "MCSA: SQL 2016 Database Development",
+    "status": "Active",
+    "issuedOn": "Jul 2, 2020"
+  },
+  {
+    "type": "Exam",
+    "title": "Developing SQL Databases",
+    "status": "Passed",
+    "issuedOn": "Jul 2, 2020"
+  },
+
+  {
+    "type": "Exam",
+    "title": "Querying Data with Transact-SQL",
+    "status": "Passed",
+    "issuedOn": "Mar 6, 2020"
+  },
+
+  {
+    "type": "Fundamentals",
+    "title": "Microsoft 365 Certified: Fundamentals",
+    "status": "Active",
+    "issuedOn": "Feb 10, 2020"
+  },
+  {
+    "type": "Exam",
+    "title": "Microsoft 365 Fundamentals",
+    "status": "Passed",
+    "issuedOn": "Feb 10, 2020"
+  },
+
+  {
+    "type": "Associate",
+    "title": "MCSA: BI Reporting",
+    "status": "Active",
+    "issuedOn": "Jan 31, 2020"
+  },
+  {
+    "type": "Exam",
+    "title": "Analyzing and Visualizing Data with Microsoft Excel",
+    "status": "Passed",
+    "issuedOn": "Jan 31, 2020"
+  },
+
+  {
+    "type": "Fundamentals",
+    "title": "Microsoft Certified: Dynamics 365 Fundamentals",
+    "status": "Active",
+    "issuedOn": "Jan 17, 2020"
+  },
+  {
+    "type": "Exam",
+    "title": "Microsoft Dynamics 365 Fundamentals",
+    "status": "Passed",
+    "issuedOn": "Jan 17, 2020"
+  },
+
+  {
+    "type": "Fundamentals",
+    "title": "Microsoft Certified: Power Platform Fundamentals",
+    "status": "Active",
+    "issuedOn": "Nov 15, 2019"
+  },
+  {
+    "type": "Exam",
+    "title": "Microsoft Power Platform Fundamentals",
+    "status": "Passed",
+    "issuedOn": "Nov 15, 2019"
+  },
+
+  {
+    "type": "Exam",
+    "title": "Analyzing and Visualizing Data with Microsoft Power BI",
+    "status": "Passed",
+    "issuedOn": "Oct 19, 2019"
+  }
+]

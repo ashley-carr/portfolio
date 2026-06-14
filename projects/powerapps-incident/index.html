@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Power Apps Incident Management - Enterprise incident management system case study.">
+    <title>Power Apps Incident Management | Ashley Carr</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="../../assets/css/global.css">
+</head>
+<body class="bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-white">
+    <!-- Header -->
+    <header id="header" class="fixed top-0 w-full bg-white dark:bg-gray-900 shadow-sm z-50" x-data="headerComponent()" x-init="initHeader()">
+        <!-- Header content will be inserted by global.js -->
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-20 pb-20">
+        <!-- Hero Section -->
+        <section class="bg-white dark:bg-gray-900">
+            <div class="container-narrow py-16">
+                <div class="max-w-2xl">
+                    <a href="../../projects.html" class="text-blue-600 dark:text-blue-400 hover:underline mb-4 inline-block">← Back to Projects</a>
+                    <h1 class="text-5xl font-bold mb-4">Power Apps Incident Management</h1>
+                    <p class="text-xl text-gray-600 dark:text-gray-400 mb-6">Enterprise incident management system with real-time dashboards and automated escalations.</p>
+                    
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-sm font-medium">Model-Driven Apps</span>
+                        <span class="px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-sm font-medium">Dataverse</span>
+                        <span class="px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-sm font-medium">Power Automate</span>
+                        <span class="px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-sm font-medium">Power BI</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hero Image -->
+        <section class="bg-gray-200 dark:bg-gray-800">
+            <div class="container-narrow py-12">
+                <div class="bg-gray-300 dark:bg-gray-700 rounded-lg aspect-video flex items-center justify-center">
+                    <svg class="w-32 h-32 text-gray-400 dark:text-gray-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"></path>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Details -->
+        <section class="bg-gray-50 dark:bg-gray-950 py-16">
+            <div class="container-narrow">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                    <!-- Main Content -->
+                    <div class="md:col-span-2 space-y-8">
+                        <div>
+                            <h2 class="text-2xl font-bold mb-4">Overview</h2>
+                            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                                A mining company required a comprehensive incident management system to track, escalate, and resolve safety and operational incidents across multiple sites. We designed and built a Model-Driven Power App on Dataverse with integrated Power Automate workflows and Power BI analytics.
+                            </p>
+                            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                                The system enables rapid incident reporting, automatic escalation based on severity, team collaboration, and compliance reporting—all with real-time visibility for executives.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold mb-4">Challenge</h2>
+                            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                                The client struggled with:
+                            </p>
+                            <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                                <li>• Fragmented incident reporting across email, spreadsheets, and manual logs</li>
+                                <li>• Delayed escalation causing safety risks</li>
+                                <li>• No audit trail or compliance reporting</li>
+                                <li>• Difficulty identifying trends and recurring issues</li>
+                                <li>• Poor cross-site collaboration and communication</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold mb-4">Solution</h2>
+                            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                                We built an integrated incident management platform:
+                            </p>
+                            <ul class="space-y-3 text-gray-700 dark:text-gray-300">
+                                <li><strong>Incident Capture:</strong> Mobile-friendly forms for field workers to report incidents in real-time</li>
+                                <li><strong>Automated Escalation:</strong> Power Automate workflows escalate high-severity incidents to management</li>
+                                <li><strong>Collaboration:</strong> Teams can view incidents, add notes, assign actions, and track resolution</li>
+                                <li><strong>Compliance Reporting:</strong> Power BI dashboards track metrics and generate compliance reports</li>
+                                <li><strong>Audit Trail:</strong> Complete history of all incident changes and approvals</li>
+                                <li><strong>Mobile Support:</strong> Responsive design works on phones, tablets, and desktops</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold mb-4">Key Features</h2>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-800">
+                                    <h3 class="font-semibold mb-2">Incident Creation</h3>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Quick capture with severity levels, location, and description</p>
+                                </div>
+                                <div class="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-800">
+                                    <h3 class="font-semibold mb-2">Escalation Workflows</h3>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Auto-escalate based on severity to appropriate teams</p>
+                                </div>
+                                <div class="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-800">
+                                    <h3 class="font-semibold mb-2">Collaborative Workspace</h3>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Team discussions, attachments, and action tracking</p>
+                                </div>
+                                <div class="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-800">
+                                    <h3 class="font-semibold mb-2">Executive Dashboards</h3>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Real-time KPIs and trend analysis via Power BI</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold mb-4">Outcomes & Impact</h2>
+                            <div class="space-y-3">
+                                <div class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-4">
+                                    <p class="font-semibold text-green-800 dark:text-green-300">60% Reduction in Response Time</p>
+                                    <p class="text-sm text-green-700 dark:text-green-400">Automated escalation and real-time notifications speed incident response</p>
+                                </div>
+                                <div class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-4">
+                                    <p class="font-semibold text-green-800 dark:text-green-300">Improved Compliance & Audit Trail</p>
+                                    <p class="text-sm text-green-700 dark:text-green-400">Complete incident history enables regulatory compliance and trend analysis</p>
+                                </div>
+                                <div class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-4">
+                                    <p class="font-semibold text-green-800 dark:text-green-300">Enhanced Cross-Site Visibility</p>
+                                    <p class="text-sm text-green-700 dark:text-green-400">Real-time dashboards provide enterprise-wide incident overview</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold mb-4">Technical Stack</h2>
+                            <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                                <div class="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-800 text-center">
+                                    <p class="font-semibold text-sm">Model-Driven Apps</p>
+                                    <p class="text-xs text-gray-600 dark:text-gray-400">Primary App</p>
+                                </div>
+                                <div class="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-800 text-center">
+                                    <p class="font-semibold text-sm">Dataverse</p>
+                                    <p class="text-xs text-gray-600 dark:text-gray-400">Data Store</p>
+                                </div>
+                                <div class="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-800 text-center">
+                                    <p class="font-semibold text-sm">Power Automate</p>
+                                    <p class="text-xs text-gray-600 dark:text-gray-400">Workflows</p>
+                                </div>
+                                <div class="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-800 text-center">
+                                    <p class="font-semibold text-sm">Power BI</p>
+                                    <p class="text-xs text-gray-600 dark:text-gray-400">Analytics</p>
+                                </div>
+                                <div class="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-800 text-center">
+                                    <p class="font-semibold text-sm">Azure SQL</p>
+                                    <p class="text-xs text-gray-600 dark:text-gray-400">Archival</p>
+                                </div>
+                                <div class="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-800 text-center">
+                                    <p class="font-semibold text-sm">Teams Integration</p>
+                                    <p class="text-xs text-gray-600 dark:text-gray-400">Notifications</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <aside class="space-y-6">
+                        <div class="bg-white dark:bg-gray-900 rounded-lg p-6 border border-gray-200 dark:border-gray-800">
+                            <h3 class="font-semibold mb-4">Project Info</h3>
+                            <div class="space-y-4 text-sm">
+                                <div>
+                                    <p class="text-gray-600 dark:text-gray-400 text-xs uppercase font-semibold mb-1">Type</p>
+                                    <p class="font-medium">Enterprise App</p>
+                                </div>
+                                <div>
+                                    <p class="text-gray-600 dark:text-gray-400 text-xs uppercase font-semibold mb-1">Industry</p>
+                                    <p class="font-medium">Mining & Resources</p>
+                                </div>
+                                <div>
+                                    <p class="text-gray-600 dark:text-gray-400 text-xs uppercase font-semibold mb-1">Duration</p>
+                                    <p class="font-medium">6 months</p>
+                                </div>
+                                <div>
+                                    <p class="text-gray-600 dark:text-gray-400 text-xs uppercase font-semibold mb-1">Users</p>
+                                    <p class="font-medium">200+</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white dark:bg-gray-900 rounded-lg p-6 border border-gray-200 dark:border-gray-800">
+                            <h3 class="font-semibold mb-4">Technologies</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs font-medium">Model-Driven</span>
+                                <span class="px-3 py-1 rounded-full bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-xs font-medium">Dataverse</span>
+                                <span class="px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 text-xs font-medium">Power Automate</span>
+                                <span class="px-3 py-1 rounded-full bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 text-xs font-medium">Power BI</span>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer" class="mt-20 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+        <!-- Footer content will be inserted by global.js -->
+    </footer>
+
+    <!-- Global Scripts -->
+    <script src="../../assets/js/global.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Projects - Featured Power Platform, Azure, and web development projects by Ashley Carr.">
+    <title>Projects | Ashley Carr</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="assets/css/global.css">
+</head>
+<body class="bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-white">
+    <!-- Header -->
+    <header id="header" class="fixed top-0 w-full bg-white dark:bg-gray-900 shadow-sm z-50" x-data="headerComponent()" x-init="initHeader()">
+        <!-- Header content will be inserted by global.js -->
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-20 pb-20">
+        <!-- Page Header -->
+        <section class="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
+            <div class="container-narrow py-12">
+                <h1 class="text-4xl font-bold mb-2">Projects</h1>
+                <p class="text-lg text-gray-600 dark:text-gray-400">A selection of Power Platform, Azure, and web development projects delivered across various industries.</p>
+            </div>
+        </section>
+
+        <!-- Projects Grid -->
+        <section class="bg-gray-50 dark:bg-gray-950 py-16">
+            <div class="container-narrow">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="projects-grid">
+                    <!-- Projects will be loaded from JSON -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer" class="mt-20 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+        <!-- Footer content will be inserted by global.js -->
+    </footer>
+
+    <!-- Global Scripts -->
+    <script src="assets/js/global.js"></script>
+</body>
+</html>

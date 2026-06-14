@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ashley Carr - Power Platform Technical Specialist. Solutions across Azure, Power Apps, Dataverse, Power Automate, Power Pages, and Power BI.">
+    <title>Ashley Carr | Power Platform Specialist</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="assets/css/global.css">
+</head>
+<body class="bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-white">
+    <!-- Header -->
+    <header id="header" class="fixed top-0 w-full bg-white dark:bg-gray-900 shadow-sm z-50" x-data="headerComponent()" x-init="initHeader()">
+        <!-- Header content will be inserted by global.js -->
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-20 pb-20">
+        <!-- Hero Section -->
+        <section class="bg-white dark:bg-gray-900">
+            <div class="container-narrow py-16">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <!-- Left: Text -->
+                    <div class="space-y-6">
+                        <div>
+                            <h1 class="text-5xl md:text-6xl font-bold mb-2">Ashley Carr</h1>
+                            <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-400 font-medium">Power Platform Technical Specialist</p>
+                        </div>
+                        
+                        <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                            Ashley is a Microsoft Power Platform specialist with strong experience across Azure data services and modern application development. He delivers high‑value solutions using Power Apps, Dataverse, Power Automate, Power Pages, Copilot Studio, and Power BI, working closely with clients and teams to design scalable, impactful systems.
+                        </p>
+                    </div>
+                    
+                    <!-- Right: Photo -->
+                    <div class="flex justify-center md:justify-end">
+                        <div class="relative w-80 h-80">
+                            <div class="w-full h-full rounded-full bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-800 dark:to-gray-700 overflow-hidden border-4 border-white dark:border-gray-800 shadow-lg flex items-center justify-center">
+                                <img src="assets/images/profile-photo.jpg" alt="Ashley Carr" class="w-full h-full object-cover">
+                                <!-- Fallback: Placeholder icon -->
+                                <svg class="w-32 h-32 text-gray-400 dark:text-gray-600 absolute" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Stats Row -->
+        <section class="bg-gray-50 dark:bg-gray-950 py-16">
+            <div class="container-narrow">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Years of Experience -->
+                    <div class="bg-white dark:bg-gray-900 rounded-lg shadow-sm border border-gray-200 dark:border-gray-800 p-8 text-center">
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400 mb-2">Years of Experience</p>
+                        <p id="years-experience" class="text-4xl font-bold text-gray-900 dark:text-white">8</p>
+                    </div>
+                    
+                    <!-- Certifications Count -->
+                    <div class="bg-white dark:bg-gray-900 rounded-lg shadow-sm border border-gray-200 dark:border-gray-800 p-8 text-center">
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400 mb-2">Active Certifications</p>
+                        <p id="certifications-count" class="text-4xl font-bold text-gray-900 dark:text-white">8</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Snapshot -->
+        <section class="bg-white dark:bg-gray-900 py-16">
+            <div class="container-narrow">
+                <h2 class="text-3xl font-bold text-center mb-12">Areas I work in</h2>
+                
+                <div class="flex flex-wrap justify-center gap-4">
+                    <span class="px-6 py-3 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white font-medium shadow-sm hover:shadow-md transition-shadow cursor-default">Power Platform</span>
+                    <span class="px-6 py-3 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white font-medium shadow-sm hover:shadow-md transition-shadow cursor-default">Azure</span>
+                    <span class="px-6 py-3 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white font-medium shadow-sm hover:shadow-md transition-shadow cursor-default">Web Development</span>
+                    <span class="px-6 py-3 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white font-medium shadow-sm hover:shadow-md transition-shadow cursor-default">Dynamics 365</span>
+                    <span class="px-6 py-3 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white font-medium shadow-sm hover:shadow-md transition-shadow cursor-default">Data & Analytics</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Projects -->
+        <section class="bg-gray-50 dark:bg-gray-950 py-16">
+            <div class="container-narrow">
+                <h2 class="text-3xl font-bold text-center mb-12">Featured Projects</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="featured-projects">
+                    <!-- Projects will be loaded from JSON -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer" class="mt-20 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+        <!-- Footer content will be inserted by global.js -->
+    </footer>
+
+    <!-- Global Scripts -->
+    <script src="assets/js/global.js"></script>
+</body>
+</html>
