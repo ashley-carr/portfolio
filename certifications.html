@@ -6,8 +6,25 @@
     <meta name="description" content="Certifications - Ashley Carr's Microsoft certifications, applied skills, and professional credentials.">
     <title>Certifications | Ashley Carr</title>
     
-    <!-- Tailwind CSS -->
+    <!-- Prevent dark mode flash on page load -->
+    <script>
+        const stored = localStorage.getItem('portfolio-dark-mode');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const shouldBeDark = stored ? JSON.parse(stored) : prefersDark;
+        if (shouldBeDark) {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+    
+    <!-- Tailwind CSS with dark mode config -->
+    <script>
+        // Configure Tailwind dark mode before loading
+        document.documentElement.style.colorScheme = 'light dark';
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config.darkMode = 'class';
+    </script>
     
     <!-- Alpine.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -26,7 +43,7 @@
         <!-- Page Header -->
         <section class="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
             <div class="container-narrow py-12">
-                <h1 class="text-4xl font-bold mb-2">Certifications & Credentials</h1>
+                <h1 class="text-4xl font-bold mb-2">Certifications</h1>
                 <p class="text-lg text-gray-600 dark:text-gray-400">Microsoft certifications and applied skills demonstrating expertise across Power Platform, Dynamics 365, and Azure.</p>
             </div>
         </section>
@@ -34,22 +51,26 @@
         <!-- Summary Stats -->
         <section class="bg-gray-50 dark:bg-gray-950 py-12">
             <div class="container-narrow">
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
                     <div class="bg-white dark:bg-gray-900 rounded-lg p-6 border border-gray-200 dark:border-gray-800 text-center">
-                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400 mb-2">Total Certifications</p>
-                        <p id="stat-total" class="text-3xl font-bold text-gray-900 dark:text-white">0</p>
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400 mb-2 break-words whitespace-normal">Total Certifications</p>
+                        <p id="stat-total-certs" class="text-3xl font-bold text-gray-900 dark:text-white">0</p>
                     </div>
                     <div class="bg-white dark:bg-gray-900 rounded-lg p-6 border border-gray-200 dark:border-gray-800 text-center">
-                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400 mb-2">Active</p>
-                        <p id="stat-active" class="text-3xl font-bold text-green-600 dark:text-green-400">0</p>
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400 mb-2 break-words whitespace-normal">Active Certifications</p>
+                        <p id="stat-active-certs" class="text-3xl font-bold text-green-600 dark:text-green-400">0</p>
                     </div>
                     <div class="bg-white dark:bg-gray-900 rounded-lg p-6 border border-gray-200 dark:border-gray-800 text-center">
-                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400 mb-2">Retired</p>
-                        <p id="stat-retired" class="text-3xl font-bold text-gray-600 dark:text-gray-400">0</p>
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400 mb-2 break-words whitespace-normal">Retired Certifications</p>
+                        <p id="stat-retired-certs" class="text-3xl font-bold text-gray-600 dark:text-gray-400">0</p>
                     </div>
                     <div class="bg-white dark:bg-gray-900 rounded-lg p-6 border border-gray-200 dark:border-gray-800 text-center">
-                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400 mb-2">Applied Skills</p>
-                        <p id="stat-applied" class="text-3xl font-bold text-blue-600 dark:text-blue-400">0</p>
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400 mb-2 break-words whitespace-normal">Exams Passed</p>
+                        <p id="stat-exams" class="text-3xl font-bold text-yellow-600 dark:text-yellow-400">0</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-900 rounded-lg p-6 border border-gray-200 dark:border-gray-800 text-center">
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400 mb-2 break-words whitespace-normal">Applied Skills</p>
+                        <p id="stat-applied-skills" class="text-3xl font-bold text-blue-600 dark:text-blue-400">0</p>
                     </div>
                 </div>
             </div>
@@ -59,16 +80,19 @@
         <section class="bg-white dark:bg-gray-900 py-8 border-b border-gray-200 dark:border-gray-800">
             <div class="container-narrow">
                 <div class="flex flex-wrap gap-3">
-                    <button class="filter-btn active px-6 py-2 rounded-full bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-medium transition-all hover:shadow-md" data-filter="all">
+                    <button class="filter-btn active px-6 py-2 rounded-full font-medium transition-all" data-filter="all">
                         All
                     </button>
-                    <button class="filter-btn px-6 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white font-medium transition-all hover:shadow-md" data-filter="active">
+                    <button class="filter-btn px-6 py-2 rounded-full font-medium transition-all" data-filter="active">
                         Active
                     </button>
-                    <button class="filter-btn px-6 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white font-medium transition-all hover:shadow-md" data-filter="retired">
+                    <button class="filter-btn px-6 py-2 rounded-full font-medium transition-all" data-filter="retired">
                         Retired
                     </button>
-                    <button class="filter-btn px-6 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white font-medium transition-all hover:shadow-md" data-filter="applied">
+                    <button class="filter-btn px-6 py-2 rounded-full font-medium transition-all" data-filter="exams">
+                        Exams
+                    </button>
+                    <button class="filter-btn px-6 py-2 rounded-full font-medium transition-all" data-filter="applied">
                         Applied Skills
                     </button>
                 </div>

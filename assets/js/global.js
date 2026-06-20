@@ -83,10 +83,11 @@ class NavigationManager {
 
 // Initialize dark mode and navigation on page load
 document.addEventListener('DOMContentLoaded', () => {
-    new DarkModeManager();
+    const darkModeManager = new DarkModeManager();
     new NavigationManager();
     initializeHeader();
     initializeFooter();
+    updateDarkModeIcon();
     
     // Load page-specific content
     if (document.getElementById('featured-projects')) {
@@ -144,8 +145,8 @@ function initializeHeader() {
             
             <!-- Dark Mode Toggle -->
             <button id="dark-mode-toggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle dark mode">
-                <svg id="sun-icon" class="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v2a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l-2.12-2.12a1 1 0 00-1.414 0l-2.12 2.12a1 1 0 001.414 1.414l.707-.707.707.707a1 1 0 001.414-1.414zm2.12-10.607a1 1 0 010 1.414l-.707.707.707.707a1 1 0 11-1.414 1.414l-2.12-2.121a1 1 0 010-1.414l2.12-2.12a1 1 0 011.414 0zM17 11a1 1 0 100-2h-2a1 1 0 100 2h2zm-7 4a1 1 0 011 1v2a1 1 0 11-2 0v-2a1 1 0 011-1zM5.05 6.464a1 1 0 010-1.414l2.12-2.12a1 1 0 011.414 0l2.12 2.12a1 1 0 01-1.414 1.414l-.707-.707-.707.707a1 1 0 11-1.414-1.414zm1.414 8.486l-.707.707-.707-.707a1 1 0 00-1.414 1.414l2.12 2.121a1 1 0 001.414 0l2.12-2.12a1 1 0 00-1.414-1.415l-.707.707z" clip-rule="evenodd"></path>
+                <svg id="sun-icon" class="w-5 h-5 text-yellow-500" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25M12 18.75V21M4.219 4.219l1.591 1.591M18.19 18.19l1.591 1.591M3 12h2.25M18.75 12H21M4.219 19.781l1.591-1.591M18.19 5.81l1.591-1.591M12 8.25a3.75 3.75 0 100 7.5 3.75 3.75 0 000-7.5z" />
                 </svg>
                 <svg id="moon-icon" class="w-5 h-5 text-gray-600 hidden" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
@@ -184,16 +185,15 @@ function initializeFooter() {
     footer.innerHTML = `
         <div class="max-w-7xl mx-auto px-6 py-8 flex items-center justify-between">
             <div>
-                <a href="mailto:ashley@example.com" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
-                    📧 Email
-                </a>
+                <a href="mailto:alcarr92@gmail.com" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
+                    📧 Contact Me
             </div>
             
             <div class="flex gap-6">
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
+                <a href="https://github.com/ashley-carr" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
                     GitHub
                 </a>
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
+                <a href="https://www.linkedin.com/in/ashley-carr/" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
                     LinkedIn
                 </a>
             </div>
@@ -258,13 +258,20 @@ function calculateYearsOfExperience() {
     }
 }
 
-// Load certifications count (active only)
+// Load certifications count (active certifications only)
 async function loadCertificationsCount() {
     try {
         const response = await fetch('data/certifications.json');
-        const certs = await response.json();
+        const allCerts = await response.json();
         
-        const activeCerts = certs.filter(c => c.status === 'Active' || c.status === 'Passed');
+        // Define certification types: Fundamentals, Associate, or Expert
+        const certificationTypes = ['Fundamentals', 'Associate', 'Expert'];
+        
+        // Filter certifications (excluding Exams and Applied Skills)
+        const certifications = allCerts.filter(c => certificationTypes.includes(c.type));
+        
+        // Count only active certifications
+        const activeCerts = certifications.filter(c => c.status === 'Active');
         
         const countElement = document.getElementById('certifications-count');
         if (countElement) {
@@ -287,9 +294,9 @@ async function loadFeaturedProjects() {
         if (container) {
             container.innerHTML = featured.map(project => `
                 <a href="${project.url}" class="group block">
-                    <div class="project-card bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                    <div class="project-card bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 flex flex-col h-full">
                         <!-- Project Image -->
-                        <div class="relative h-48 bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-800 dark:to-gray-700 overflow-hidden">
+                        <div class="relative h-48 bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-800 dark:to-gray-700 overflow-hidden flex-shrink-0">
                             <img src="${project.thumbnail}" alt="${project.name}" class="w-full h-full object-cover">
                             <!-- Fallback icon -->
                             <svg class="w-16 h-16 text-gray-400 dark:text-gray-600 absolute inset-1/2 transform -translate-x-1/2 -translate-y-1/2" fill="currentColor" viewBox="0 0 20 20">
@@ -304,10 +311,12 @@ async function loadFeaturedProjects() {
                         </div>
                         
                         <!-- Project Info -->
-                        <div class="p-6">
+                        <div class="p-6 flex flex-col flex-1">
                             <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">${project.name}</h3>
                             <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">${project.techStack}</p>
-                            <button class="inline-block text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline">View Project →</button>
+                            <div class="mt-auto">
+                                <button class="inline-block text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline">View Project →</button>
+                            </div>
                         </div>
                     </div>
                 </a>
@@ -334,25 +343,42 @@ async function loadCertifications() {
 }
 
 function updateCertificationStats() {
-    const total = allCertifications.length;
-    const active = allCertifications.filter(c => c.status === 'Active' || c.status === 'Passed').length;
-    const retired = allCertifications.filter(c => c.status === 'Retired').length;
-    const applied = allCertifications.filter(c => c.type === 'Applied Skill').length;
+    // Define certification types: Fundamentals, Associate, or Expert
+    const certificationTypes = ['Fundamentals', 'Associate', 'Expert'];
     
-    document.getElementById('stat-total').textContent = total;
-    document.getElementById('stat-active').textContent = active;
-    document.getElementById('stat-retired').textContent = retired;
-    document.getElementById('stat-applied').textContent = applied;
+    // Filter certifications (excluding Exams and Applied Skills)
+    const certifications = allCertifications.filter(c => certificationTypes.includes(c.type));
+    
+    // Calculate stats
+    const totalCerts = certifications.length;
+    const activeCerts = certifications.filter(c => c.status === 'Active').length;
+    const retiredCerts = certifications.filter(c => c.status === 'Retired').length;
+    const examsPassed = allCertifications.filter(c => c.type === 'Exam').length;
+    const appliedSkills = allCertifications.filter(c => c.type === 'Applied Skill').length;
+    
+    // Update DOM
+    document.getElementById('stat-total-certs').textContent = totalCerts;
+    document.getElementById('stat-active-certs').textContent = activeCerts;
+    document.getElementById('stat-retired-certs').textContent = retiredCerts;
+    document.getElementById('stat-exams').textContent = examsPassed;
+    document.getElementById('stat-applied-skills').textContent = appliedSkills;
 }
 
 function renderCertifications(filter) {
     let filtered = allCertifications;
+    const certificationTypes = ['Fundamentals', 'Associate', 'Expert'];
     
     if (filter === 'active') {
-        filtered = allCertifications.filter(c => c.status === 'Active' || c.status === 'Passed');
+        // Active certifications only: Fundamentals, Associate, Expert with status "Active"
+        filtered = allCertifications.filter(c => certificationTypes.includes(c.type) && c.status === 'Active');
     } else if (filter === 'retired') {
-        filtered = allCertifications.filter(c => c.status === 'Retired');
+        // Retired certifications only: Fundamentals, Associate, Expert with status "Retired"
+        filtered = allCertifications.filter(c => certificationTypes.includes(c.type) && c.status === 'Retired');
+    } else if (filter === 'exams') {
+        // Exams only
+        filtered = allCertifications.filter(c => c.type === 'Exam');
     } else if (filter === 'applied') {
+        // Applied skills only
         filtered = allCertifications.filter(c => c.type === 'Applied Skill');
     }
     
@@ -397,12 +423,10 @@ function setupCertificationFilters() {
     const filterBtns = document.querySelectorAll('.filter-btn');
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            filterBtns.forEach(b => {
-                b.classList.remove('bg-gray-900', 'dark:bg-white', 'text-white', 'dark:text-gray-900');
-                b.classList.add('bg-gray-100', 'dark:bg-gray-800', 'text-gray-900', 'dark:text-white');
-            });
-            btn.classList.remove('bg-gray-100', 'dark:bg-gray-800', 'text-gray-900', 'dark:text-white');
-            btn.classList.add('bg-gray-900', 'dark:bg-white', 'text-white', 'dark:text-gray-900');
+            // Remove active class from all buttons
+            filterBtns.forEach(b => b.classList.remove('active'));
+            // Add active class to clicked button
+            btn.classList.add('active');
             
             renderCertifications(btn.getAttribute('data-filter'));
         });

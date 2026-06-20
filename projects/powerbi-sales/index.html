@@ -6,8 +6,25 @@
     <meta name="description" content="Power BI Sales Analytics - Advanced sales dashboard case study.">
     <title>Power BI Sales Analytics | Ashley Carr</title>
     
-    <!-- Tailwind CSS -->
+    <!-- Prevent dark mode flash on page load -->
+    <script>
+        const stored = localStorage.getItem('portfolio-dark-mode');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const shouldBeDark = stored ? JSON.parse(stored) : prefersDark;
+        if (shouldBeDark) {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+    
+    <!-- Tailwind CSS with dark mode config -->
+    <script>
+        // Configure Tailwind dark mode before loading
+        document.documentElement.style.colorScheme = 'light dark';
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config.darkMode = 'class';
+    </script>
     
     <!-- Alpine.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>

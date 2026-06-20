@@ -1,16 +1,30 @@
 [
   {
     "type": "Exam",
-    "title": "Microsoft Dynamics 365 Customer Experience Analyst",
+    "title": "MB-280: Microsoft Dynamics 365 Customer Experience Analyst",
     "status": "Passed",
     "issuedOn": "Mar 27, 2026"
   },
+  {
+    "type": "Associate",
+    "title": "Microsoft Certified: Dynamics 365 Customer Experience Analyst Associate",
+    "status": "Active",
+    "issuedOn": "Mar 27, 2026"
+  },
+
   {
     "type": "Fundamentals",
     "title": "GitHub Foundations",
     "status": "Active",
     "issuedOn": "Dec 28, 2025"
   },
+  {
+    "type": "Exam",
+    "title": "GH-900: GitHub Foundations",
+    "status": "Passed",
+    "issuedOn": "Dec 28, 2025"
+  },
+
   {
     "type": "Applied Skill",
     "title": "Microsoft Applied Skills: Prepare security and compliance to support Microsoft 365 Copilot",
@@ -29,12 +43,7 @@
     "status": "Active",
     "issuedOn": "Dec 8, 2025"
   },
-  {
-    "type": "Exam",
-    "title": "GitHub Foundations",
-    "status": "Passed",
-    "issuedOn": "Dec 28, 2025"
-  },
+
   {
     "type": "Applied Skill",
     "title": "Microsoft Applied Skills: Enhance agents with autonomous capabilities",
@@ -53,6 +62,7 @@
     "status": "Active",
     "issuedOn": "Nov 8, 2025"
   },
+
   {
     "type": "Applied Skill",
     "title": "Microsoft Applied Skills: Create and manage automated processes by using Power Automate",
@@ -73,15 +83,8 @@
   },
 
   {
-    "type": "Associate",
-    "title": "Microsoft Certified: Dynamics 365 Customer Experience Analyst Associate",
-    "status": "Active",
-    "issuedOn": "Mar 27, 2026"
-  },
-
-  {
     "type": "Exam",
-    "title": "Dynamics 365 Fundamentals Finance and Operations Apps (ERP)",
+    "title": "MB-920: Dynamics 365 Fundamentals Finance and Operations Apps (ERP)",
     "status": "Passed",
     "issuedOn": "Jun 30, 2023"
   },
@@ -94,7 +97,7 @@
 
   {
     "type": "Exam",
-    "title": "Microsoft Dynamics 365 Fundamentals (CRM)",
+    "title": "MB-910: Microsoft Dynamics 365 Fundamentals (CRM)",
     "status": "Passed",
     "issuedOn": "Jun 25, 2023"
   },
@@ -107,7 +110,7 @@
 
   {
     "type": "Exam",
-    "title": "Microsoft Azure AI Fundamentals",
+    "title": "AI-900: Microsoft Azure AI Fundamentals",
     "status": "Passed",
     "issuedOn": "Jun 23, 2023"
   },
@@ -120,14 +123,14 @@
 
   {
     "type": "Exam",
-    "title": "Microsoft Power BI Data Analyst",
+    "title": "PL-300: Microsoft Power BI Data Analyst",
     "status": "Passed",
     "issuedOn": "Jun 18, 2023"
   },
 
   {
     "type": "Exam",
-    "title": "Microsoft Azure Data Fundamentals",
+    "title": "DP-900: Microsoft Azure Data Fundamentals",
     "status": "Passed",
     "issuedOn": "Jun 16, 2023"
   },
@@ -140,7 +143,7 @@
 
   {
     "type": "Exam",
-    "title": "Microsoft Dynamics 365 Customer Insights (Journeys) Functional Consultant",
+    "title": "MB-220: Microsoft Dynamics 365 Customer Insights (Journeys) Functional Consultant",
     "status": "Passed",
     "issuedOn": "Jun 11, 2023"
   },
@@ -149,6 +152,19 @@
     "title": "Microsoft Certified: Dynamics 365 Customer Insights (Journeys) Functional Consultant Associate",
     "status": "Retired",
     "issuedOn": "Jun 11, 2023"
+  },
+
+  {
+    "type": "Expert",
+    "title": "Microsoft Certified: Power Platform Solution Architect Expert",
+    "status": "Active",
+    "issuedOn": "Jun 23, 2021"
+  },
+  {
+    "type": "Exam",
+    "title": "PL-600: Microsoft Power Platform Solution Architect",
+    "status": "Passed",
+    "issuedOn": "Jun 23, 2021"
   },
 
   {
@@ -165,22 +181,9 @@
   },
   {
     "type": "Exam",
-    "title": "Microsoft Dynamics 365 + Power Platform Solution Architect",
+    "title": "MB-600: Microsoft Dynamics 365 + Power Platform Solution Architect",
     "status": "Passed",
     "issuedOn": "Jun 22, 2021"
-  },
-
-  {
-    "type": "Expert",
-    "title": "Microsoft Certified: Power Platform Solution Architect Expert",
-    "status": "Active",
-    "issuedOn": "Jun 23, 2021"
-  },
-  {
-    "type": "Exam",
-    "title": "Microsoft Power Platform Solution Architect",
-    "status": "Passed",
-    "issuedOn": "Jun 23, 2021"
   },
 
   {
@@ -191,7 +194,7 @@
   },
   {
     "type": "Exam",
-    "title": "Microsoft Power Platform Developer",
+    "title": "PL-400: Microsoft Power Platform Developer",
     "status": "Passed",
     "issuedOn": "May 8, 2021"
   },
@@ -204,7 +207,7 @@
   },
   {
     "type": "Exam",
-    "title": "Microsoft Security, Compliance, and Identity Fundamentals",
+    "title": "SC-900: Microsoft Security, Compliance, and Identity Fundamentals",
     "status": "Passed",
     "issuedOn": "Apr 16, 2021"
   },
@@ -217,7 +220,7 @@
   },
   {
     "type": "Exam",
-    "title": "Analyzing Data with Microsoft Power BI",
+    "title": "DA-100: Analyzing Data with Microsoft Power BI",
     "status": "Passed",
     "issuedOn": "Mar 28, 2021"
   },
@@ -230,7 +233,7 @@
   },
   {
     "type": "Exam",
-    "title": "Microsoft Power Platform Functional Consultant",
+    "title": "PL-200: Microsoft Power Platform Functional Consultant",
     "status": "Passed",
     "issuedOn": "Jan 13, 2021"
   },
@@ -243,14 +246,14 @@
   },
   {
     "type": "Exam",
-    "title": "Microsoft Power Platform App Maker",
+    "title": "PL-100: Microsoft Power Platform App Maker",
     "status": "Passed",
     "issuedOn": "Jan 12, 2021"
   },
 
   {
     "type": "Exam",
-    "title": "Microsoft Power Apps + Dynamics 365 Developer",
+    "title": "MB-400: Microsoft Power Apps + Dynamics 365 Developer",
     "status": "Passed",
     "issuedOn": "Dec 19, 2020"
   },
@@ -263,7 +266,7 @@
 
   {
     "type": "Exam",
-    "title": "Microsoft Power Platform + Dynamics 365 Core",
+    "title": "MB-200: Microsoft Power Platform + Dynamics 365 Core",
     "status": "Passed",
     "issuedOn": "Dec 15, 2020"
   },
@@ -276,7 +279,7 @@
   },
   {
     "type": "Exam",
-    "title": "Microsoft Azure Fundamentals",
+    "title": "AZ-900: Microsoft Azure Fundamentals",
     "status": "Passed",
     "issuedOn": "Jul 9, 2020"
   },
@@ -295,14 +298,14 @@
   },
   {
     "type": "Exam",
-    "title": "Developing SQL Databases",
+    "title": "762: Developing SQL Databases",
     "status": "Passed",
     "issuedOn": "Jul 2, 2020"
   },
 
   {
     "type": "Exam",
-    "title": "Querying Data with Transact-SQL",
+    "title": "761: Querying Data with Transact-SQL",
     "status": "Passed",
     "issuedOn": "Mar 6, 2020"
   },
@@ -315,7 +318,7 @@
   },
   {
     "type": "Exam",
-    "title": "Microsoft 365 Fundamentals",
+    "title": "MS-900: Microsoft 365 Fundamentals",
     "status": "Passed",
     "issuedOn": "Feb 10, 2020"
   },
@@ -328,7 +331,7 @@
   },
   {
     "type": "Exam",
-    "title": "Analyzing and Visualizing Data with Microsoft Excel",
+    "title": "779: Analyzing and Visualizing Data with Microsoft Excel",
     "status": "Passed",
     "issuedOn": "Jan 31, 2020"
   },
@@ -341,7 +344,7 @@
   },
   {
     "type": "Exam",
-    "title": "Microsoft Dynamics 365 Fundamentals",
+    "title": "MB-901: Microsoft Dynamics 365 Fundamentals",
     "status": "Passed",
     "issuedOn": "Jan 17, 2020"
   },
@@ -354,14 +357,14 @@
   },
   {
     "type": "Exam",
-    "title": "Microsoft Power Platform Fundamentals",
+    "title": "PL-900: Microsoft Power Platform Fundamentals",
     "status": "Passed",
     "issuedOn": "Nov 15, 2019"
   },
 
   {
     "type": "Exam",
-    "title": "Analyzing and Visualizing Data with Microsoft Power BI",
+    "title": "778: Analyzing and Visualizing Data with Microsoft Power BI",
     "status": "Passed",
     "issuedOn": "Oct 19, 2019"
   }
