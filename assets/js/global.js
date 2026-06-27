@@ -1,5 +1,31 @@
 // Global JavaScript for Portfolio Site
 
+const IS_NESTED_PROJECT_PAGE = window.location.pathname.includes('/projects/');
+const BASE_PREFIX = IS_NESTED_PROJECT_PAGE ? '../../' : '';
+
+function getStoredThemePreference(storageKey) {
+    const storedRaw = localStorage.getItem(storageKey);
+
+    if (storedRaw === null) {
+        return null;
+    }
+
+    try {
+        return JSON.parse(storedRaw);
+    } catch (error) {
+        return null;
+    }
+}
+
+function withBasePath(path) {
+    if (!path || /^(https?:|mailto:|tel:|#)/.test(path)) {
+        return path;
+    }
+
+    const normalized = path.replace(/^\.\//, '');
+    return `${BASE_PREFIX}${normalized}`;
+}
+
 // Dark mode toggle and persistence
 class DarkModeManager {
     constructor() {
@@ -9,10 +35,10 @@ class DarkModeManager {
 
     init() {
         // Check localStorage or system preference
-        const stored = localStorage.getItem(this.storageKey);
+        const stored = getStoredThemePreference(this.storageKey);
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        
-        const shouldBeDark = stored ? JSON.parse(stored) : prefersDark;
+
+        const shouldBeDark = stored !== null ? stored : prefersDark;
         
         if (shouldBeDark) {
             this.enable();
@@ -58,13 +84,13 @@ class NavigationManager {
         const navLinks = document.querySelectorAll('.nav-link');
         
         navLinks.forEach(link => {
-            const href = link.getAttribute('href');
+            const page = link.getAttribute('data-page') || this.getPageNameFromHref(link.getAttribute('href'));
             
             // Home page is index.html
-            const isHome = (currentPage === '' || currentPage === 'index.html') && href === 'index.html';
+            const isHome = (currentPage === '' || currentPage === 'index.html') && page === 'index.html';
             
             // Other pages match directly
-            const isCurrentPage = currentPage === href;
+            const isCurrentPage = currentPage === page;
             
             if (isHome || isCurrentPage) {
                 link.classList.add('active');
@@ -74,7 +100,20 @@ class NavigationManager {
         });
     }
 
+    getPageNameFromHref(href) {
+        if (!href) {
+            return '';
+        }
+
+        const cleanHref = href.split('#')[0].split('?')[0];
+        return cleanHref.substring(cleanHref.lastIndexOf('/') + 1);
+    }
+
     getCurrentPage() {
+        if (IS_NESTED_PROJECT_PAGE) {
+            return 'projects.html';
+        }
+
         const path = window.location.pathname;
         const page = path.substring(path.lastIndexOf('/') + 1) || 'index.html';
         return page;
@@ -83,10 +122,11 @@ class NavigationManager {
 
 // Initialize dark mode and navigation on page load
 document.addEventListener('DOMContentLoaded', () => {
-    const darkModeManager = new DarkModeManager();
-    new NavigationManager();
+    new DarkModeManager();
     initializeHeader();
+    new NavigationManager();
     initializeFooter();
+    initializePageMeta();
     updateDarkModeIcon();
     
     // Load page-specific content
@@ -106,9 +146,52 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+function initializePageMeta() {
+    const canonicalLink = document.getElementById('canonical-link');
+    const ogUrl = document.getElementById('meta-og-url');
+    const ogImage = document.getElementById('meta-og-image');
+    const twitterImage = document.getElementById('meta-twitter-image');
+
+    if (!canonicalLink && !ogUrl && !ogImage && !twitterImage) {
+        return;
+    }
+
+    const canonicalHref = window.location.href.split('#')[0].split('?')[0];
+
+    if (canonicalLink) {
+        canonicalLink.setAttribute('href', canonicalHref);
+    }
+
+    if (ogUrl) {
+        ogUrl.setAttribute('content', canonicalHref);
+    }
+
+    const normalizeAssetUrl = (metaElement) => {
+        if (!metaElement) {
+            return;
+        }
+
+        const current = metaElement.getAttribute('content');
+        if (!current) {
+            return;
+        }
+
+        try {
+            const absolute = new URL(current, window.location.href).href;
+            metaElement.setAttribute('content', absolute);
+        } catch (error) {
+            // Ignore invalid URL content and leave original value as-is.
+        }
+    };
+
+    normalizeAssetUrl(ogImage);
+    normalizeAssetUrl(twitterImage);
+}
+
 // Header component
 function initializeHeader() {
     const header = document.getElementById('header');
+    if (!header) return;
     
     header.innerHTML = `
         <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -117,13 +200,13 @@ function initializeHeader() {
             
             <!-- Center Navigation -->
             <div class="flex gap-8 items-center">
-                <a href="index.html" class="nav-link nav-pill">Home</a>
-                <a href="about.html" class="nav-link nav-pill">About</a>
-                <a href="certifications.html" class="nav-link nav-pill">Certifications</a>
+                <a href="${withBasePath('index.html')}" data-page="index.html" class="nav-link nav-pill">Home</a>
+                <a href="${withBasePath('about.html')}" data-page="about.html" class="nav-link nav-pill">About</a>
+                <a href="${withBasePath('certifications.html')}" data-page="certifications.html" class="nav-link nav-pill">Certifications</a>
                 
                 <!-- Projects with dropdown -->
                 <div class="relative group">
-                    <button class="nav-link nav-pill flex items-center gap-1" id="projects-btn">
+                    <button type="button" class="nav-link nav-pill flex items-center gap-1" id="projects-btn" data-page="projects.html" aria-expanded="false" aria-haspopup="true" aria-controls="projects-dropdown">
                         Projects
                         <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
@@ -131,11 +214,11 @@ function initializeHeader() {
                     </button>
                     
                     <!-- Dropdown Menu -->
-                    <div class="dropdown-menu absolute top-full left-1/2 transform -translate-x-1/2 w-full min-w-max hidden opacity-0 transform translate-y-2 transition-all duration-300 group-hover:block group-hover:opacity-100 group-hover:translate-y-0 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg shadow-lg z-50" id="projects-dropdown">
-                        <div class="p-6">
-                            <a href="projects.html" class="block text-sm font-semibold text-gray-900 dark:text-white mb-4 pb-4 border-b border-gray-200 dark:border-gray-800 hover:text-blue-600 dark:hover:text-blue-400">Show all projects →</a>
+                    <div class="dropdown-menu absolute left-1/2 transform -translate-x-1/2 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg shadow-lg z-50" id="projects-dropdown">
+                        <div class="p-4 md:p-5">
+                            <a href="${withBasePath('projects.html')}" class="block text-sm font-semibold text-gray-900 dark:text-white mb-4 pb-4 border-b border-gray-200 dark:border-gray-800 hover:text-blue-600 dark:hover:text-blue-400">Show all projects →</a>
                             
-                            <div class="grid grid-cols-3 gap-4" id="featured-projects-grid">
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-3" id="featured-projects-grid">
                                 <!-- Projects will be populated from JSON -->
                             </div>
                         </div>
@@ -164,10 +247,12 @@ function initializeHeader() {
             updateDarkModeIcon();
         });
     }
+
+    setupProjectsDropdown();
     
     // Mark Projects as active if on projects page
     const currentPage = window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1) || 'index.html';
-    if (currentPage === 'projects.html' || currentPage.includes('projects/')) {
+    if (currentPage === 'projects.html' || IS_NESTED_PROJECT_PAGE) {
         const projectsBtn = document.getElementById('projects-btn');
         if (projectsBtn) {
             projectsBtn.classList.add('active');
@@ -181,12 +266,14 @@ function initializeHeader() {
 // Footer component
 function initializeFooter() {
     const footer = document.getElementById('footer');
+    if (!footer) return;
     
     footer.innerHTML = `
         <div class="max-w-7xl mx-auto px-6 py-8 flex items-center justify-between">
             <div>
                 <a href="mailto:alcarr92@gmail.com" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
-                    📧 Contact Me
+                    📧 Contact me
+                </a>
             </div>
             
             <div class="flex gap-6">
@@ -205,10 +292,111 @@ function initializeFooter() {
     `;
 }
 
+function setupProjectsDropdown() {
+    const projectsBtn = document.getElementById('projects-btn');
+    const projectsDropdown = document.getElementById('projects-dropdown');
+
+    if (!projectsBtn || !projectsDropdown) {
+        return;
+    }
+
+    const openDropdown = () => {
+        projectsDropdown.classList.add('active');
+        projectsBtn.setAttribute('aria-expanded', 'true');
+    };
+
+    const closeDropdown = () => {
+        projectsDropdown.classList.remove('active');
+        projectsBtn.setAttribute('aria-expanded', 'false');
+    };
+
+    let closeTimeout = null;
+
+    const clearCloseTimeout = () => {
+        if (closeTimeout) {
+            clearTimeout(closeTimeout);
+            closeTimeout = null;
+        }
+    };
+
+    const scheduleClose = () => {
+        clearCloseTimeout();
+        closeTimeout = setTimeout(() => {
+            const isInteractiveHover =
+                projectsBtn.matches(':hover') ||
+                projectsDropdown.matches(':hover') ||
+                projectsDropdown.contains(document.activeElement);
+
+            if (!isInteractiveHover) {
+                closeDropdown();
+            }
+        }, 240);
+    };
+
+    const currentPage = window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1) || 'index.html';
+    const isProjectsListPage = currentPage === 'projects.html';
+    const isProjectDetailPage = IS_NESTED_PROJECT_PAGE;
+    const projectsListUrl = withBasePath('projects.html');
+
+    projectsBtn.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        // On project detail pages, the primary click action should return to Projects list.
+        if (isProjectDetailPage || !isProjectsListPage) {
+            window.location.href = projectsListUrl;
+            return;
+        }
+
+        const isOpen = projectsDropdown.classList.contains('active');
+        if (isOpen) {
+            closeDropdown();
+        } else {
+            openDropdown();
+        }
+    });
+
+    const wrapper = projectsBtn.closest('.group');
+
+    projectsBtn.addEventListener('mouseenter', () => {
+        clearCloseTimeout();
+        openDropdown();
+    });
+    projectsBtn.addEventListener('mouseleave', scheduleClose);
+
+    projectsDropdown.addEventListener('mouseenter', () => {
+        clearCloseTimeout();
+        openDropdown();
+    });
+    projectsDropdown.addEventListener('mouseleave', scheduleClose);
+
+    projectsBtn.addEventListener('focus', openDropdown);
+    projectsBtn.addEventListener('blur', scheduleClose);
+    projectsDropdown.addEventListener('focusin', () => {
+        clearCloseTimeout();
+        openDropdown();
+    });
+    projectsDropdown.addEventListener('focusout', scheduleClose);
+
+    document.addEventListener('click', (event) => {
+        if (!wrapper?.contains(event.target)) {
+            clearCloseTimeout();
+            closeDropdown();
+        }
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            clearCloseTimeout();
+            closeDropdown();
+            projectsBtn.focus();
+        }
+    });
+}
+
 // Load featured projects into dropdown
 async function loadFeaturedProjectsDropdown() {
     try {
-        const response = await fetch('data/projects.json');
+        const response = await fetch(withBasePath('data/projects.json'));
         const projects = await response.json();
         
         const grid = document.getElementById('featured-projects-grid');
@@ -216,9 +404,9 @@ async function loadFeaturedProjectsDropdown() {
             const featured = projects.filter(p => p.featured).slice(0, 3);
             
             grid.innerHTML = featured.map(project => `
-                <a href="${project.url}" class="group">
-                    <div class="bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden aspect-square mb-2">
-                        <img src="${project.thumbnail}" alt="${project.name}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                <a href="${withBasePath(project.url)}" class="group">
+                    <div class="surface-card rounded-lg overflow-hidden aspect-[16/10] mb-2">
+                        <img src="${withBasePath(project.thumbnail)}" alt="${project.name}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
                     </div>
                     <p class="text-sm font-medium text-gray-900 dark:text-white">${project.name}</p>
                 </a>
@@ -261,7 +449,7 @@ function calculateYearsOfExperience() {
 // Load certifications count (active certifications only)
 async function loadCertificationsCount() {
     try {
-        const response = await fetch('data/certifications.json');
+        const response = await fetch(withBasePath('data/certifications.json'));
         const allCerts = await response.json();
         
         // Define certification types: Fundamentals, Associate, or Expert
@@ -285,7 +473,7 @@ async function loadCertificationsCount() {
 // Load featured projects
 async function loadFeaturedProjects() {
     try {
-        const response = await fetch('data/projects.json');
+        const response = await fetch(withBasePath('data/projects.json'));
         const projects = await response.json();
         
         const featured = projects.filter(p => p.featured);
@@ -293,11 +481,11 @@ async function loadFeaturedProjects() {
         
         if (container) {
             container.innerHTML = featured.map(project => `
-                <a href="${project.url}" class="group block">
-                    <div class="project-card bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+                <a href="${withBasePath(project.url)}" class="group block">
+                    <div class="project-card surface-card overflow-hidden transition-all duration-300 flex flex-col h-full">
                         <!-- Project Image -->
-                        <div class="relative h-48 bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-800 dark:to-gray-700 overflow-hidden flex-shrink-0">
-                            <img src="${project.thumbnail}" alt="${project.name}" class="w-full h-full object-cover">
+                        <div class="relative h-52 bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-800 dark:to-gray-700 overflow-hidden flex-shrink-0">
+                            <img src="${withBasePath(project.thumbnail)}" alt="${project.name}" class="w-full h-full object-cover">
                             <!-- Fallback icon -->
                             <svg class="w-16 h-16 text-gray-400 dark:text-gray-600 absolute inset-1/2 transform -translate-x-1/2 -translate-y-1/2" fill="currentColor" viewBox="0 0 20 20">
                                 <path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"></path>
@@ -305,8 +493,8 @@ async function loadFeaturedProjects() {
                             
                             <!-- Slide-up overlay -->
                             <div class="project-overlay">
-                                <p class="text-sm font-medium mb-4">${project.summary}</p>
-                                <p class="text-xs text-gray-300">Click to view project →</p>
+                                <p class="text-sm font-medium mb-4">${project.cardSummary}</p>
+                                <p class="text-xs text-gray-300">Open case study →</p>
                             </div>
                         </div>
                         
@@ -315,7 +503,7 @@ async function loadFeaturedProjects() {
                             <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">${project.name}</h3>
                             <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">${project.techStack}</p>
                             <div class="mt-auto">
-                                <button class="inline-block text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline">View Project →</button>
+                                <span class="inline-block text-sm hover:underline card-cta">Explore Project →</span>
                             </div>
                         </div>
                     </div>
@@ -332,7 +520,7 @@ let allCertifications = [];
 
 async function loadCertifications() {
     try {
-        const response = await fetch('data/certifications.json');
+        const response = await fetch(withBasePath('data/certifications.json'));
         allCertifications = await response.json();
         
         updateCertificationStats();
@@ -386,7 +574,7 @@ function renderCertifications(filter) {
     const tableBody = document.getElementById('certifications-table-body');
     if (tableBody) {
         tableBody.innerHTML = filtered.map((cert, idx) => `
-            <tr class="border-b border-gray-200 dark:border-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors ${idx % 2 === 0 ? 'bg-white dark:bg-gray-900' : 'bg-gray-50 dark:bg-gray-800'}">
+            <tr class="border-b border-gray-200 dark:border-gray-800 ${idx % 2 === 0 ? 'bg-white dark:bg-gray-900' : 'bg-gray-50 dark:bg-gray-800'}">
                 <td class="py-4 px-4 text-sm text-gray-900 dark:text-white font-medium">
                     <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold ${getTypeBadgeColor(cert.type)}">
                         ${cert.type}
@@ -405,7 +593,7 @@ function renderCertifications(filter) {
     const cardsContainer = document.getElementById('certifications-cards');
     if (cardsContainer) {
         cardsContainer.innerHTML = filtered.map(cert => `
-            <div class="bg-white dark:bg-gray-900 rounded-lg p-4 border border-gray-200 dark:border-gray-800">
+            <div class="surface-card rounded-lg p-4">
                 <div class="flex items-start justify-between mb-3">
                     <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold ${getTypeBadgeColor(cert.type)}">
                         ${cert.type}
@@ -421,14 +609,30 @@ function renderCertifications(filter) {
 
 function setupCertificationFilters() {
     const filterBtns = document.querySelectorAll('.filter-btn');
+
+    const setActiveFilter = (targetFilter) => {
+        filterBtns.forEach(b => {
+            const isActive = b.getAttribute('data-filter') === targetFilter;
+            b.classList.toggle('active', isActive);
+            b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        });
+    };
+
+    // Ensure pressed state matches whichever filter is currently active.
+    filterBtns.forEach(btn => {
+        btn.setAttribute('aria-pressed', btn.classList.contains('active') ? 'true' : 'false');
+    });
+
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            // Remove active class from all buttons
-            filterBtns.forEach(b => b.classList.remove('active'));
-            // Add active class to clicked button
-            btn.classList.add('active');
-            
-            renderCertifications(btn.getAttribute('data-filter'));
+            const selectedFilter = btn.getAttribute('data-filter');
+            const isActive = btn.classList.contains('active');
+
+            // Clicking an active non-All filter returns to All for quicker reset.
+            const nextFilter = isActive && selectedFilter !== 'all' ? 'all' : selectedFilter;
+
+            setActiveFilter(nextFilter);
+            renderCertifications(nextFilter);
         });
     });
 }
@@ -462,17 +666,17 @@ function formatDate(dateString) {
 // Load all projects for projects page
 async function loadAllProjects() {
     try {
-        const response = await fetch('data/projects.json');
+        const response = await fetch(withBasePath('data/projects.json'));
         const projects = await response.json();
         
         const container = document.getElementById('projects-grid');
         if (container) {
             container.innerHTML = projects.map(project => `
-                <a href="${project.url}" class="group block">
-                    <div class="project-card bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                <a href="${withBasePath(project.url)}" class="group block h-full">
+                    <div class="project-card surface-card overflow-hidden transition-all duration-300 flex flex-col h-full">
                         <!-- Project Image -->
-                        <div class="relative h-64 bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-800 dark:to-gray-700 overflow-hidden">
-                            <img src="${project.thumbnail}" alt="${project.name}" class="w-full h-full object-cover">
+                        <div class="relative h-56 bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-800 dark:to-gray-700 overflow-hidden">
+                            <img src="${withBasePath(project.thumbnail)}" alt="${project.name}" class="w-full h-full object-cover">
                             <!-- Fallback icon -->
                             <svg class="w-20 h-20 text-gray-400 dark:text-gray-600 absolute inset-1/2 transform -translate-x-1/2 -translate-y-1/2" fill="currentColor" viewBox="0 0 20 20">
                                 <path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"></path>
@@ -481,17 +685,17 @@ async function loadAllProjects() {
                             <!-- Slide-up overlay -->
                             <div class="project-overlay">
                                 <h3 class="text-lg font-semibold mb-2">${project.name}</h3>
-                                <p class="text-sm mb-4">${project.summary}</p>
+                                <p class="text-sm mb-4">${project.cardSummary}</p>
                                 <p class="text-xs text-gray-300">View project →</p>
                             </div>
                         </div>
                         
                         <!-- Project Info -->
-                        <div class="p-6">
+                        <div class="p-6 flex flex-col flex-1">
                             <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">${project.name}</h3>
                             <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">${project.techStack}</p>
-                            <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">${project.summary}</p>
-                            <button class="inline-block text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline">View Details →</button>
+                            <p class="text-sm text-gray-700 dark:text-gray-300 mb-4 flex-1">${project.cardSummary}</p>
+                            <span class="inline-block text-sm hover:underline card-cta mt-auto">View Details →</span>
                         </div>
                     </div>
                 </a>

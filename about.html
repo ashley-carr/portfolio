@@ -4,74 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="About Ashley Carr - Power Platform Technical Specialist with experience across Azure, Power Platform, Dynamics 365, and modern development.">
+    <link id="canonical-link" rel="canonical" href="about.html">
+    <meta property="og:title" content="About Ashley Carr | Power Platform Specialist">
+    <meta property="og:description" content="I design and deliver secure, scalable Microsoft solutions across Power Platform, Azure, Dynamics 365, and data analytics.">
+    <meta property="og:type" content="website">
+    <meta id="meta-og-url" property="og:url" content="about.html">
+    <meta id="meta-og-image" property="og:image" content="assets/images/ashley-carr-profile.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About Ashley Carr | Power Platform Specialist">
+    <meta name="twitter:description" content="I design and deliver secure, scalable Microsoft solutions across Power Platform, Azure, Dynamics 365, and data analytics.">
+    <meta id="meta-twitter-image" name="twitter:image" content="assets/images/ashley-carr-profile.png">
     <title>About | Ashley Carr</title>
     
-    <!-- Prevent dark mode flash on page load -->
-    <script>
-        const stored = localStorage.getItem('portfolio-dark-mode');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const shouldBeDark = stored ? JSON.parse(stored) : prefersDark;
-        if (shouldBeDark) {
-            document.documentElement.classList.add('dark');
-        }
-    </script>
+    <!-- Shared early theme initialization -->
+    <script src="assets/js/theme-init.js"></script>
     
     <!-- Tailwind CSS with dark mode config -->
-    <script>
-        // Configure Tailwind dark mode before loading
-        document.documentElement.style.colorScheme = 'light dark';
-    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config.darkMode = 'class';
     </script>
-    
-    <!-- Alpine.js -->
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     
     <!-- Global Styles -->
     <link rel="stylesheet" href="assets/css/global.css">
 </head>
 <body class="bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-white">
     <!-- Header -->
-    <header id="header" class="fixed top-0 w-full bg-white dark:bg-gray-900 shadow-sm z-50" x-data="headerComponent()" x-init="initHeader()">
+    <header id="header" class="fixed top-0 w-full bg-white dark:bg-gray-900 shadow-sm z-50">
         <!-- Header content will be inserted by global.js -->
     </header>
 
     <!-- Main Content -->
-    <main class="pt-20 pb-20">
+    <main class="pt-24 pb-24">
         <!-- Hero Section -->
-        <section class="bg-white dark:bg-gray-900">
-            <div class="container-narrow py-16 text-center">
-                <h1 class="text-5xl font-bold mb-4">About Me</h1>
-                <p class="text-xl text-gray-600 dark:text-gray-400">Power Platform Technical Specialist based in Perth, Australia.</p>
+        <section class="bg-white dark:bg-gray-900 section-block">
+            <div class="container-narrow text-center">
+                <h1 class="section-title mb-4">About Me</h1>
+                <p class="text-xl text-gray-600 dark:text-gray-400 page-lead mx-auto lg:max-w-none lg:whitespace-nowrap">I design and deliver practical Microsoft solutions aimed at secure, scalable outcomes for real business processes.</p>
             </div>
         </section>
 
         <!-- About Narrative -->
-        <section class="bg-gray-50 dark:bg-gray-950 py-16">
+        <section class="bg-gray-50 dark:bg-gray-950 section-block">
             <div class="container-narrow">
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                     <!-- Avatar (optional, centered on mobile) -->
                     <div class="flex justify-center md:justify-start">
                         <div class="w-48 h-48 rounded-full bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-800 dark:to-gray-700 overflow-hidden flex-shrink-0 flex items-center justify-center">
-                            <img src="assets/images/profile-photo.jpg" alt="Ashley Carr" class="w-full h-full object-cover">
-                            <svg class="w-24 h-24 text-gray-400 dark:text-gray-600 absolute" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
-                            </svg>
+                            <img src="assets/images/ashley-carr-profile.png" alt="Ashley Carr" class="w-full h-full object-cover">
                         </div>
                     </div>
                     
                     <!-- Main Text -->
-                    <div class="md:col-span-3 space-y-6 text-gray-700 dark:text-gray-300 leading-relaxed">
+                    <div class="md:col-span-3 surface-card p-7 md:p-9 space-y-6 text-gray-700 dark:text-gray-300 leading-relaxed">
                         <p>
-                            Ashley is a Microsoft Power Platform specialist with deep experience designing and delivering solutions across Power Apps, Dataverse, Power Automate, Power Pages, Copilot Studio, and Power BI. With a strong background in Azure‑aligned services and modern application development, he focuses on building scalable, maintainable systems that solve real business problems.
+                            I design and deliver Power Platform and Azure-integrated systems that turn complex requirements into secure, scalable applications. I build with Power Apps, Dataverse, Power Automate, Power Pages, Copilot Studio, and Power BI for production-ready delivery.
                         </p>
                         <p>
-                            He has worked across mining, government, finance, education, and primary production, supporting organisations through solution design, development, governance, and application lifecycle management. Ashley is known for his collaborative approach, clear communication, and ability to guide teams through best‑practice Power Platform architecture and delivery.
-                        </p>
-                        <p>
-                            Across his career, he has delivered solutions ranging from enterprise‑grade Dynamics 365 implementations to Power Pages portals, complex automations, data‑driven reporting, and field‑ready canvas applications. He continues to expand his expertise across Azure, governance, and modern development practices to support clients with high‑value, future‑ready solutions.
+                            Across mining, government, finance, education, and primary production, I support delivery through solution design, hands-on development, governance guidance, and ALM practices. I focus on improving process efficiency, supporting consistent delivery, and delivering decision-ready reporting.
                         </p>
                     </div>
                 </div>
@@ -79,98 +69,98 @@
         </section>
 
         <!-- Experience Timeline -->
-        <section class="bg-white dark:bg-gray-900 py-16">
+        <section class="bg-white dark:bg-gray-900 section-block">
             <div class="container-narrow">
-                <h2 class="text-3xl font-bold mb-12">Experience</h2>
+            <h2 class="section-title mb-12 text-center">Experience</h2>
                 
                 <div class="timeline">
                     <!-- Technical Specialist — Insight -->
-                    <div class="timeline-item bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
-                        <div class="flex gap-6">
-                            <div class="flex-shrink-0">
+                    <div class="timeline-item surface-card p-6">
+                        <div class="experience-entry flex flex-col md:flex-row gap-4 md:gap-6">
+                            <div class="experience-date md:flex-shrink-0">
                                 <p class="font-semibold text-gray-900 dark:text-white whitespace-nowrap">Apr 2023 – Present</p>
                             </div>
                             <div>
                                 <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">Technical Specialist</h3>
-                                <p class="text-gray-600 dark:text-gray-400 mb-4">Insight</p>
-                                <ul class="space-y-2 text-gray-700 dark:text-gray-300 text-sm">
-                                    <li>• Designing and delivering Power Platform solutions using best‑practice architecture, ALM, and governance.</li>
-                                    <li>• Providing guidance and support across Power Apps, Dataverse, Power Automate, Power Pages, Copilot Studio, and Power BI.</li>
-                                    <li>• Supporting clients with governance, solution reviews, and technical leadership.</li>
-                                    <li>• Working across multiple departments to uplift Power Platform capability and ensure scalable delivery.</li>
+                                <p class="text-xs font-semibold tracking-wide uppercase text-gray-500 dark:text-gray-400 mb-4">Insight</p>
+                                <ul class="about-list space-y-2 text-gray-700 dark:text-gray-300 text-sm">
+                                    <li>Delivered enterprise Power Platform solutions using governed ALM pipelines.</li>
+                                    <li>Applied architecture patterns to support consistent and maintainable delivery.</li>
+                                    <li>Ran cross-team design reviews to improve release readiness.</li>
+                                    <li>Provided reusable components and governance guidance across delivery teams.</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
 
                     <!-- Senior Consultant — Insight -->
-                    <div class="timeline-item bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
-                        <div class="flex gap-6">
-                            <div class="flex-shrink-0">
+                    <div class="timeline-item surface-card p-6">
+                        <div class="experience-entry flex flex-col md:flex-row gap-4 md:gap-6">
+                            <div class="experience-date md:flex-shrink-0">
                                 <p class="font-semibold text-gray-900 dark:text-white whitespace-nowrap">Oct 2021 – Apr 2023</p>
                             </div>
                             <div>
                                 <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">Senior Consultant</h3>
-                                <p class="text-gray-600 dark:text-gray-400 mb-4">Insight</p>
-                                <ul class="space-y-2 text-gray-700 dark:text-gray-300 text-sm">
-                                    <li>• Led solution enhancements and support across mining, finance, education, and government clients.</li>
-                                    <li>• Delivered new Power Platform applications, automations, and portal enhancements.</li>
-                                    <li>• Provided governance, technical guidance, and solution reviews across multiple teams.</li>
-                                    <li>• Supported field‑based applications, document management solutions, and business process automation.</li>
+                                <p class="text-xs font-semibold tracking-wide uppercase text-gray-500 dark:text-gray-400 mb-4">Insight</p>
+                                <ul class="about-list space-y-2 text-gray-700 dark:text-gray-300 text-sm">
+                                    <li>Delivered new apps, automations, and portal features for enterprise clients.</li>
+                                    <li>Redesigned workflows to improve handoff clarity and process flow.</li>
+                                    <li>Introduced governance checkpoints to support delivery quality.</li>
+                                    <li>Implemented field and document solutions to improve operational consistency.</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
 
                     <!-- Consultant — Insight -->
-                    <div class="timeline-item bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
-                        <div class="flex gap-6">
-                            <div class="flex-shrink-0">
+                    <div class="timeline-item surface-card p-6">
+                        <div class="experience-entry flex flex-col md:flex-row gap-4 md:gap-6">
+                            <div class="experience-date md:flex-shrink-0">
                                 <p class="font-semibold text-gray-900 dark:text-white whitespace-nowrap">Mar 2021 – Oct 2021</p>
                             </div>
                             <div>
                                 <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">Consultant</h3>
-                                <p class="text-gray-600 dark:text-gray-400 mb-4">Insight</p>
-                                <ul class="space-y-2 text-gray-700 dark:text-gray-300 text-sm">
-                                    <li>• Delivered Power Platform solutions across mining, education, government, and finance sectors.</li>
-                                    <li>• Built applications for drilling data capture, student/course processing, automated marketing, and document workflows.</li>
-                                    <li>• Provided solution support, enhancements, and technical guidance.</li>
+                                <p class="text-xs font-semibold tracking-wide uppercase text-gray-500 dark:text-gray-400 mb-4">Insight</p>
+                                <ul class="about-list space-y-2 text-gray-700 dark:text-gray-300 text-sm">
+                                    <li>Delivered sector-specific Power Platform apps for core business operations.</li>
+                                    <li>Automated capture and approval workflows to improve data quality and cycle time.</li>
+                                    <li>Stabilized live solutions with targeted enhancements and production support.</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
 
                     <!-- Consultant — Velrada -->
-                    <div class="timeline-item bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
-                        <div class="flex gap-6">
-                            <div class="flex-shrink-0">
+                    <div class="timeline-item surface-card p-6">
+                        <div class="experience-entry flex flex-col md:flex-row gap-4 md:gap-6">
+                            <div class="experience-date md:flex-shrink-0">
                                 <p class="font-semibold text-gray-900 dark:text-white whitespace-nowrap">Jun 2018 – Mar 2021</p>
                             </div>
                             <div>
                                 <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">Consultant</h3>
-                                <p class="text-gray-600 dark:text-gray-400 mb-4">Velrada</p>
-                                <ul class="space-y-2 text-gray-700 dark:text-gray-300 text-sm">
-                                    <li>• Developed solutions using Power Apps, Dataverse, Power Automate, Power BI, and Dynamics 365.</li>
-                                    <li>• Delivered portals, reporting solutions, CRM systems, and operational applications.</li>
-                                    <li>• Worked across mining, local government, and primary production.</li>
-                                    <li>• Built solutions including stockpile tracking, initiative tracking, waste management, CRM, and enrolment portals.</li>
+                                <p class="text-xs font-semibold tracking-wide uppercase text-gray-500 dark:text-gray-400 mb-4">Velrada</p>
+                                <ul class="about-list space-y-2 text-gray-700 dark:text-gray-300 text-sm">
+                                    <li>Built operational apps, automations, reporting, and Dynamics 365 solutions.</li>
+                                    <li>Implemented portal and CRM workflows that improved service visibility.</li>
+                                    <li>Delivered tracking and enrolment systems that reduced manual administration.</li>
+                                    <li>Supported multi-industry projects with repeatable delivery practices.</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
 
                     <!-- Intern — Satalyst -->
-                    <div class="timeline-item bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
-                        <div class="flex gap-6">
-                            <div class="flex-shrink-0">
+                    <div class="timeline-item surface-card p-6">
+                        <div class="experience-entry flex flex-col md:flex-row gap-4 md:gap-6">
+                            <div class="experience-date md:flex-shrink-0">
                                 <p class="font-semibold text-gray-900 dark:text-white whitespace-nowrap">Feb 2018 – Jun 2018</p>
                             </div>
                             <div>
                                 <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">Intern</h3>
-                                <p class="text-gray-600 dark:text-gray-400 mb-4">Satalyst</p>
-                                <ul class="space-y-2 text-gray-700 dark:text-gray-300 text-sm">
-                                    <li>• Gained hands‑on experience with Power BI, Azure Data Factory, Power Apps, Flow, Azure ML, and Python.</li>
-                                    <li>• Supported internal development tasks and learned modern cloud development practices.</li>
+                                <p class="text-xs font-semibold tracking-wide uppercase text-gray-500 dark:text-gray-400 mb-4">Satalyst</p>
+                                <ul class="about-list space-y-2 text-gray-700 dark:text-gray-300 text-sm">
+                                    <li>Developed core skills in Power BI, Azure data services, Power Apps, and Python.</li>
+                                    <li>Supported delivery and internal automation to accelerate team output.</li>
                                 </ul>
                             </div>
                         </div>
@@ -180,88 +170,88 @@
         </section>
 
         <!-- Skills & Capabilities Grid -->
-        <section class="bg-gray-50 dark:bg-gray-950 py-16">
+        <section class="bg-gray-50 dark:bg-gray-950 section-block">
             <div class="container-narrow">
-                <h2 class="text-3xl font-bold mb-2 text-center">Skills & Capabilities</h2>
-                <p class="text-center text-gray-600 dark:text-gray-400 mb-12">A broad technical skillset across the Microsoft Power Platform, Dynamics 365, Azure, and modern development practices.</p>
+            <h2 class="section-title mb-2 text-center">Skills & Capabilities</h2>
+            <p class="text-center text-gray-600 dark:text-gray-400 mb-12 page-lead max-w-5xl mx-auto">Core technical capability used to design, build, and scale Microsoft business solutions.</p>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <!-- Power Platform Engineering -->
-                    <div class="bg-white dark:bg-gray-900 rounded-lg p-6 border border-gray-200 dark:border-gray-800">
+                    <div class="surface-card p-6">
                         <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Power Platform Engineering</h3>
                         <div class="w-8 h-1 bg-gray-300 dark:bg-gray-700 mb-4"></div>
-                        <ul class="space-y-2 text-sm text-gray-700 dark:text-gray-300">
-                            <li>• Power Apps (Canvas, Model‑Driven, BPF, responsive design, offline)</li>
-                            <li>• Dataverse (tables, relationships, security, business rules)</li>
-                            <li>• Power Automate (flows, connectors, DLP-compliant design)</li>
-                            <li>• Power Pages (authentication, web forms, table permissions)</li>
-                            <li>• Copilot Studio (agents, orchestration, integrations)</li>
-                            <li>• Custom connectors & APIs</li>
-                            <li>• PCF components & command bar customization</li>
-                            <li>• ALM, Managed Environments, Governance & Security</li>
-                        </ul>
-                    </div>
-
-                    <!-- Dynamics 365 & Integration -->
-                    <div class="bg-white dark:bg-gray-900 rounded-lg p-6 border border-gray-200 dark:border-gray-800">
-                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Dynamics 365 & Integration</h3>
-                        <div class="w-8 h-1 bg-gray-300 dark:bg-gray-700 mb-4"></div>
-                        <ul class="space-y-2 text-sm text-gray-700 dark:text-gray-300">
-                            <li>• Dynamics 365 (Sales, Marketing, Customer Service)</li>
-                            <li>• Dataverse Web API & Custom APIs</li>
-                            <li>• SharePoint integration (document management)</li>
-                            <li>• Exchange integration (mailboxes, tracking)</li>
-                            <li>• Power Pages authentication providers</li>
-                            <li>• API-based integrations & Azure services</li>
+                        <ul class="about-list space-y-2 text-sm text-gray-700 dark:text-gray-300">
+                            <li>Power Apps (Canvas, Model-Driven, offline, responsive)</li>
+                            <li>Dataverse (data model, security, business rules)</li>
+                            <li>Power Automate (cloud flows, connectors, DLP-aware design)</li>
+                            <li>Power Pages (authentication, forms, table permissions)</li>
+                            <li>Copilot Studio (agents and orchestration)</li>
+                            <li>Custom connectors and API integrations</li>
+                            <li>PCF components and command customization</li>
+                            <li>ALM, managed environments, VNet-integrated environments, governance, security</li>
                         </ul>
                     </div>
 
                     <!-- Azure & Cloud Services -->
-                    <div class="bg-white dark:bg-gray-900 rounded-lg p-6 border border-gray-200 dark:border-gray-800">
+                    <div class="surface-card p-6">
                         <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Azure & Cloud Services</h3>
                         <div class="w-8 h-1 bg-gray-300 dark:bg-gray-700 mb-4"></div>
-                        <ul class="space-y-2 text-sm text-gray-700 dark:text-gray-300">
-                            <li>• Azure Entra ID (authentication, permissions)</li>
-                            <li>• Azure Key Vault (secrets management)</li>
-                            <li>• Azure Storage (blobs, files)</li>
-                            <li>• Azure SQL & Data Factory</li>
-                            <li>• VNet-integrated environments</li>
+                        <ul class="about-list space-y-2 text-sm text-gray-700 dark:text-gray-300">
+                            <li>Azure Entra ID (identity and access)</li>
+                            <li>Azure Key Vault (secret management)</li>
+                            <li>Azure Storage (blob and file services)</li>
+                            <li>Azure SQL and Data Factory</li>
                         </ul>
                     </div>
 
-                    <!-- Development Languages -->
-                    <div class="bg-white dark:bg-gray-900 rounded-lg p-6 border border-gray-200 dark:border-gray-800">
-                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Development Languages</h3>
-                        <div class="w-8 h-1 bg-gray-300 dark:bg-gray-700 mb-4"></div>
-                        <ul class="space-y-2 text-sm text-gray-700 dark:text-gray-300">
-                            <li>• C#, JavaScript, React, HTML & CSS</li>
-                            <li>• SQL / T‑SQL, Power Fx, Python</li>
-                            <li>• Liquid, DAX, M Query</li>
-                            <li>• PowerShell, XML, JSON, YAML, Markdown</li>
-                        </ul>
-                    </div>
-
-                    <!-- Data, Reporting & Modelling -->
-                    <div class="bg-white dark:bg-gray-900 rounded-lg p-6 border border-gray-200 dark:border-gray-800">
+                    <!-- Data & Reporting -->
+                    <div class="surface-card p-6">
                         <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Data & Reporting</h3>
                         <div class="w-8 h-1 bg-gray-300 dark:bg-gray-700 mb-4"></div>
-                        <ul class="space-y-2 text-sm text-gray-700 dark:text-gray-300">
-                            <li>• Data modeling, migration, & quality</li>
-                            <li>• Power BI (dashboards, DAX, RLS, composites)</li>
-                            <li>• Paginated reports & dataflows</li>
-                            <li>• SQL design & stored procedures</li>
+                        <ul class="about-list space-y-2 text-sm text-gray-700 dark:text-gray-300">
+                            <li>Data modeling, migration, and quality</li>
+                            <li>Power BI and Excel reporting (Power Query, DAX, RLS, composite models)</li>
+                            <li>Paginated reports and dataflows</li>
+                            <li>SQL design and stored procedures</li>
+                        </ul>
+                    </div>
+
+                    <!-- Business Applications & Integration -->
+                    <div class="surface-card p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Business Applications & Integration</h3>
+                        <div class="w-8 h-1 bg-gray-300 dark:bg-gray-700 mb-4"></div>
+                        <ul class="about-list space-y-2 text-sm text-gray-700 dark:text-gray-300">
+                            <li>Dynamics 365 (Sales, Marketing, Customer Service)</li>
+                            <li>Dataverse Web API and custom APIs</li>
+                            <li>SharePoint integration (document management)</li>
+                            <li>Exchange integration (mailboxes and tracking)</li>
+                            <li>Power Pages authentication providers</li>
+                            <li>API integrations with Azure services</li>
                         </ul>
                     </div>
 
                     <!-- DevOps & ALM -->
-                    <div class="bg-white dark:bg-gray-900 rounded-lg p-6 border border-gray-200 dark:border-gray-800">
+                    <div class="surface-card p-6">
                         <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">DevOps & ALM</h3>
                         <div class="w-8 h-1 bg-gray-300 dark:bg-gray-700 mb-4"></div>
-                        <ul class="space-y-2 text-sm text-gray-700 dark:text-gray-300">
-                            <li>• Azure DevOps & Git workflows</li>
-                            <li>• Solution packaging & deployment</li>
-                            <li>• Power BI deployment pipelines</li>
-                            <li>• Multi-environment & source control strategies</li>
+                        <ul class="about-list space-y-2 text-sm text-gray-700 dark:text-gray-300">
+                            <li>Azure DevOps and Git workflows</li>
+                            <li>Solution packaging and deployment</li>
+                            <li>Power BI deployment pipelines</li>
+                            <li>Multi-environment and source control strategies</li>
+                        </ul>
+                    </div>
+
+                    <!-- Languages, Frameworks & Tooling -->
+                    <div class="surface-card p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Languages, Frameworks & Tooling</h3>
+                        <div class="w-8 h-1 bg-gray-300 dark:bg-gray-700 mb-4"></div>
+                        <ul class="about-list space-y-2 text-sm text-gray-700 dark:text-gray-300">
+                            <li>C#, JavaScript, HTML, CSS</li>
+                            <li>PCF, Power Fx, Liquid</li>
+                            <li>SQL, T-SQL, Python</li>
+                            <li>PAC CLI, Postman, XrmToolBox, Plugin Registration Tool, Configuration Migration Tool</li>
+                            <li>PowerShell, Visual Studio, VS Code, JSON, YAML, XML</li>
                         </ul>
                     </div>
                 </div>
@@ -269,10 +259,10 @@
         </section>
 
         <!-- Education -->
-        <section class="bg-white dark:bg-gray-900 py-16 border-t border-gray-200 dark:border-gray-800">
+        <section class="bg-white dark:bg-gray-900 section-block border-t border-gray-200 dark:border-gray-800">
             <div class="container-narrow">
-                <h2 class="text-3xl font-bold mb-6">Education</h2>
-                <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
+                <h2 class="section-title mb-6">Education</h2>
+                <div class="surface-card p-6">
                     <p class="text-lg font-semibold text-gray-900 dark:text-white">Diploma of Software Development</p>
                 </div>
             </div>

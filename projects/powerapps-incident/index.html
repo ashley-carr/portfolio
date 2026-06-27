@@ -6,35 +6,21 @@
     <meta name="description" content="Power Apps Incident Management - Enterprise incident management system case study.">
     <title>Power Apps Incident Management | Ashley Carr</title>
     
-    <!-- Prevent dark mode flash on page load -->
-    <script>
-        const stored = localStorage.getItem('portfolio-dark-mode');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const shouldBeDark = stored ? JSON.parse(stored) : prefersDark;
-        if (shouldBeDark) {
-            document.documentElement.classList.add('dark');
-        }
-    </script>
+    <!-- Shared early theme initialization -->
+    <script src="../../assets/js/theme-init.js"></script>
     
     <!-- Tailwind CSS with dark mode config -->
-    <script>
-        // Configure Tailwind dark mode before loading
-        document.documentElement.style.colorScheme = 'light dark';
-    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config.darkMode = 'class';
     </script>
-    
-    <!-- Alpine.js -->
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     
     <!-- Global Styles -->
     <link rel="stylesheet" href="../../assets/css/global.css">
 </head>
 <body class="bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-white">
     <!-- Header -->
-    <header id="header" class="fixed top-0 w-full bg-white dark:bg-gray-900 shadow-sm z-50" x-data="headerComponent()" x-init="initHeader()">
+    <header id="header" class="fixed top-0 w-full bg-white dark:bg-gray-900 shadow-sm z-50">
         <!-- Header content will be inserted by global.js -->
     </header>
 
@@ -47,22 +33,15 @@
                     <a href="../../projects.html" class="text-blue-600 dark:text-blue-400 hover:underline mb-4 inline-block">← Back to Projects</a>
                     <h1 class="text-5xl font-bold mb-4">Power Apps Incident Management</h1>
                     <p class="text-xl text-gray-600 dark:text-gray-400 mb-6">Enterprise incident management system with real-time dashboards and automated escalations.</p>
-                    
-                    <div class="flex flex-wrap gap-3">
-                        <span class="px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-sm font-medium">Model-Driven Apps</span>
-                        <span class="px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-sm font-medium">Dataverse</span>
-                        <span class="px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-sm font-medium">Power Automate</span>
-                        <span class="px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-sm font-medium">Power BI</span>
-                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Hero Image -->
         <section class="bg-gray-200 dark:bg-gray-800">
-            <div class="container-narrow py-12">
-                <div class="bg-gray-300 dark:bg-gray-700 rounded-lg aspect-video flex items-center justify-center">
-                    <svg class="w-32 h-32 text-gray-400 dark:text-gray-600" fill="currentColor" viewBox="0 0 20 20">
+            <div class="container-narrow py-10">
+                <div class="bg-gray-300 dark:bg-gray-700 rounded-lg aspect-[16/8] flex items-center justify-center">
+                    <svg class="w-24 h-24 text-gray-400 dark:text-gray-600" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"></path>
                     </svg>
                 </div>
@@ -115,6 +94,20 @@
                         </div>
 
                         <div>
+                            <h2 class="text-2xl font-bold mb-4">Delivery Process</h2>
+                            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                                This project follows the same structured delivery workflow used across the portfolio:
+                            </p>
+                            <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                                <li>• Generated a project concept aligned to target capabilities and technology focus</li>
+                                <li>• Captured requirements, constraints, and intended business outcomes</li>
+                                <li>• Produced mockups and solution design artifacts</li>
+                                <li>• Authored an Architecture Design Document (ADD) before build implementation</li>
+                                <li>• Implemented and validated solution features with supporting documentation</li>
+                            </ul>
+                        </div>
+
+                        <div>
                             <h2 class="text-2xl font-bold mb-4">Key Features</h2>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div class="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-800">
@@ -154,32 +147,29 @@
                             </div>
                         </div>
 
-                        <div>
-                            <h2 class="text-2xl font-bold mb-4">Technical Stack</h2>
-                            <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
-                                <div class="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-800 text-center">
-                                    <p class="font-semibold text-sm">Model-Driven Apps</p>
-                                    <p class="text-xs text-gray-600 dark:text-gray-400">Primary App</p>
+                        <div id="see-it-in-action">
+                            <h2 class="text-2xl font-bold mb-4">See It in Action</h2>
+                            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                                Captured views of the implemented solution showing key user journeys, interactions, and final UI outcomes.
+                            </p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-800">
+                                    <div class="rounded-lg bg-gray-200 dark:bg-gray-800 aspect-video flex items-center justify-center mb-3">
+                                        <span class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Screenshot Slot 1</span>
+                                    </div>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Incident intake and severity assignment form</p>
                                 </div>
-                                <div class="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-800 text-center">
-                                    <p class="font-semibold text-sm">Dataverse</p>
-                                    <p class="text-xs text-gray-600 dark:text-gray-400">Data Store</p>
+                                <div class="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-800">
+                                    <div class="rounded-lg bg-gray-200 dark:bg-gray-800 aspect-video flex items-center justify-center mb-3">
+                                        <span class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Screenshot Slot 2</span>
+                                    </div>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Escalation workflow and task progression details</p>
                                 </div>
-                                <div class="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-800 text-center">
-                                    <p class="font-semibold text-sm">Power Automate</p>
-                                    <p class="text-xs text-gray-600 dark:text-gray-400">Workflows</p>
-                                </div>
-                                <div class="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-800 text-center">
-                                    <p class="font-semibold text-sm">Power BI</p>
-                                    <p class="text-xs text-gray-600 dark:text-gray-400">Analytics</p>
-                                </div>
-                                <div class="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-800 text-center">
-                                    <p class="font-semibold text-sm">Azure SQL</p>
-                                    <p class="text-xs text-gray-600 dark:text-gray-400">Archival</p>
-                                </div>
-                                <div class="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-800 text-center">
-                                    <p class="font-semibold text-sm">Teams Integration</p>
-                                    <p class="text-xs text-gray-600 dark:text-gray-400">Notifications</p>
+                                <div class="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-800 md:col-span-2">
+                                    <div class="rounded-lg bg-gray-200 dark:bg-gray-800 aspect-[16/7] flex items-center justify-center mb-3">
+                                        <span class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Screenshot Slot 3</span>
+                                    </div>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Executive Power BI dashboard for trend and compliance monitoring</p>
                                 </div>
                             </div>
                         </div>
@@ -198,13 +188,27 @@
                                     <p class="text-gray-600 dark:text-gray-400 text-xs uppercase font-semibold mb-1">Industry</p>
                                     <p class="font-medium">Mining & Resources</p>
                                 </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white dark:bg-gray-900 rounded-lg p-6 border border-gray-200 dark:border-gray-800">
+                            <h3 class="font-semibold mb-4">Project Links</h3>
+                            <div class="space-y-4 text-sm">
                                 <div>
-                                    <p class="text-gray-600 dark:text-gray-400 text-xs uppercase font-semibold mb-1">Duration</p>
-                                    <p class="font-medium">6 months</p>
+                                    <p class="text-gray-600 dark:text-gray-400 text-xs uppercase font-semibold mb-2">Repo</p>
+                                    <a href="https://github.com/ashley-carr/powerapps-incident-management-temp" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:underline inline-flex items-center">Open Repository ↗</a>
                                 </div>
                                 <div>
-                                    <p class="text-gray-600 dark:text-gray-400 text-xs uppercase font-semibold mb-1">Users</p>
-                                    <p class="font-medium">200+</p>
+                                    <p class="text-gray-600 dark:text-gray-400 text-xs uppercase font-semibold mb-2">Architecture Design Document (ADD)</p>
+                                    <a href="./docs/powerapps-incident-add.pdf" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:underline inline-flex items-center">Open ADD ↗</a>
+                                </div>
+                                <div>
+                                    <p class="text-gray-600 dark:text-gray-400 text-xs uppercase font-semibold mb-2">Solution Walkthrough</p>
+                                    <a href="#see-it-in-action" class="text-blue-600 dark:text-blue-400 hover:underline inline-flex items-center">View solution in action ↓</a>
+                                </div>
+                                <div>
+                                    <p class="text-gray-600 dark:text-gray-400 text-xs uppercase font-semibold mb-2">Extended Gallery</p>
+                                    <a href="./gallery.html" class="text-blue-600 dark:text-blue-400 hover:underline inline-flex items-center">Open full image gallery ↗</a>
                                 </div>
                             </div>
                         </div>

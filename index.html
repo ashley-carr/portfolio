@@ -4,55 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Ashley Carr - Power Platform Technical Specialist. Solutions across Azure, Power Apps, Dataverse, Power Automate, Power Pages, and Power BI.">
+    <link id="canonical-link" rel="canonical" href="index.html">
+    <meta property="og:title" content="Ashley Carr | Power Platform Specialist">
+    <meta property="og:description" content="I design and deliver Power Platform and Azure-integrated solutions that improve reliability, automation, and decision-ready reporting.">
+    <meta property="og:type" content="website">
+    <meta id="meta-og-url" property="og:url" content="index.html">
+    <meta id="meta-og-image" property="og:image" content="assets/images/ashley-carr-profile.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ashley Carr | Power Platform Specialist">
+    <meta name="twitter:description" content="I design and deliver Power Platform and Azure-integrated solutions that improve reliability, automation, and decision-ready reporting.">
+    <meta id="meta-twitter-image" name="twitter:image" content="assets/images/ashley-carr-profile.png">
     <title>Ashley Carr | Power Platform Specialist</title>
     
-    <!-- Prevent dark mode flash on page load -->
-    <script>
-        const stored = localStorage.getItem('portfolio-dark-mode');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const shouldBeDark = stored ? JSON.parse(stored) : prefersDark;
-        if (shouldBeDark) {
-            document.documentElement.classList.add('dark');
-        }
-    </script>
+    <!-- Shared early theme initialization -->
+    <script src="assets/js/theme-init.js"></script>
     
     <!-- Tailwind CSS with dark mode config -->
-    <script>
-        // Configure Tailwind dark mode before loading
-        document.documentElement.style.colorScheme = 'light dark';
-    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config.darkMode = 'class';
     </script>
-    
-    <!-- Alpine.js -->
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     
     <!-- Global Styles -->
     <link rel="stylesheet" href="assets/css/global.css">
 </head>
 <body class="bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-white">
     <!-- Header -->
-    <header id="header" class="fixed top-0 w-full bg-white dark:bg-gray-900 shadow-sm z-50" x-data="headerComponent()" x-init="initHeader()">
+    <header id="header" class="fixed top-0 w-full bg-white dark:bg-gray-900 shadow-sm z-50">
         <!-- Header content will be inserted by global.js -->
     </header>
 
     <!-- Main Content -->
-    <main class="pt-20 pb-20">
+    <main class="pt-24 pb-24">
         <!-- Hero Section -->
-        <section class="bg-white dark:bg-gray-900">
-            <div class="container-narrow py-16">
+        <section class="bg-white dark:bg-gray-900 section-block">
+            <div class="container-narrow">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <!-- Left: Text -->
                     <div class="space-y-6">
                         <div>
-                            <h1 class="text-5xl md:text-6xl font-bold mb-2">Ashley Carr</h1>
-                            <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-400 font-medium">Power Platform Technical Specialist</p>
+                            <h1 class="section-title hero-name mb-2">Ashley Carr</h1>
+                            <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-400 font-medium page-lead">Power Platform Technical Specialist</p>
                         </div>
                         
-                        <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-                            Ashley is a Microsoft Power Platform specialist with strong experience across Azure data services and modern application development. He delivers high‑value solutions using Power Apps, Dataverse, Power Automate, Power Pages, Copilot Studio, and Power BI, working closely with clients and teams to design scalable, impactful systems.
+                        <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed page-lead">
+                            I work across Power Apps, Dataverse, Power Automate, Power Pages, Copilot Studio, Azure data services, Dynamics 365, and Power BI to design and deliver production-ready business solutions. My focus is practical delivery that reduces manual effort, improves system reliability, and strengthens decision-ready data.
                         </p>
                     </div>
                     
@@ -60,11 +56,7 @@
                     <div class="flex justify-center md:justify-end">
                         <div class="relative w-80 h-80">
                             <div class="w-full h-full rounded-full bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-800 dark:to-gray-700 overflow-hidden border-4 border-white dark:border-gray-800 shadow-lg flex items-center justify-center">
-                                <img src="assets/images/profile-photo.jpg" alt="Ashley Carr" class="w-full h-full object-cover">
-                                <!-- Fallback: Placeholder icon -->
-                                <svg class="w-32 h-32 text-gray-400 dark:text-gray-600 absolute" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
-                                </svg>
+                                <img src="assets/images/ashley-carr-profile.png" alt="Ashley Carr" class="w-full h-full object-cover">
                             </div>
                         </div>
                     </div>
@@ -73,43 +65,81 @@
         </section>
 
         <!-- Dynamic Stats Row -->
-        <section class="bg-gray-50 dark:bg-gray-950 py-16">
+        <section class="bg-gray-50 dark:bg-gray-950 section-block home-metrics-section">
             <div class="container-narrow">
+                <div class="text-center mb-10">
+                    <h2 class="section-title mb-2">Impact at a Glance</h2>
+                </div>
+
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <!-- Years of Experience -->
-                    <div class="bg-white dark:bg-gray-900 rounded-lg shadow-sm border border-gray-200 dark:border-gray-800 p-8 text-center">
-                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400 mb-2 break-words whitespace-normal">Years of Experience</p>
-                        <p id="years-experience" class="text-4xl font-bold text-gray-900 dark:text-white">8</p>
+                    <div class="surface-card stat-card home-metric-card p-8 text-center">
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400 mb-2 break-words whitespace-normal stat-label home-metric-label">Years Delivering Enterprise Solutions</p>
+                        <p id="years-experience" class="text-4xl font-bold text-gray-900 dark:text-white home-metric-value">8</p>
                     </div>
                     
                     <!-- Certifications Count -->
-                    <div class="bg-white dark:bg-gray-900 rounded-lg shadow-sm border border-gray-200 dark:border-gray-800 p-8 text-center">
-                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400 mb-2 break-words whitespace-normal">Active Certifications</p>
-                        <p id="certifications-count" class="text-4xl font-bold text-gray-900 dark:text-white">8</p>
+                    <div class="surface-card stat-card home-metric-card p-8 text-center">
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400 mb-2 break-words whitespace-normal stat-label home-metric-label">Active Microsoft Certifications</p>
+                        <p id="certifications-count" class="text-4xl font-bold text-gray-900 dark:text-white home-metric-value">8</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Skills Snapshot -->
-        <section class="bg-white dark:bg-gray-900 py-16">
+        <section class="bg-white dark:bg-gray-900 section-block">
             <div class="container-narrow">
-                <h2 class="text-3xl font-bold text-center mb-12">Areas I work in</h2>
+                <h2 class="section-title text-center mb-2">Core Expertise</h2>
+                <p class="section-subtitle text-center mx-auto mb-10">Five focus areas where strategy, platform engineering, and delivery come together.</p>
                 
-                <div class="flex flex-wrap justify-center gap-4">
-                    <span class="px-6 py-3 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white font-medium shadow-sm hover:shadow-md transition-shadow cursor-default">Power Platform</span>
-                    <span class="px-6 py-3 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white font-medium shadow-sm hover:shadow-md transition-shadow cursor-default">Azure</span>
-                    <span class="px-6 py-3 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white font-medium shadow-sm hover:shadow-md transition-shadow cursor-default">Web Development</span>
-                    <span class="px-6 py-3 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white font-medium shadow-sm hover:shadow-md transition-shadow cursor-default">Dynamics 365</span>
-                    <span class="px-6 py-3 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white font-medium shadow-sm hover:shadow-md transition-shadow cursor-default">Data & Analytics</span>
+                <div class="skills-showcase">
+                    <div class="skills-list">
+                        <div class="skills-item">
+                            <span class="skills-dot" aria-hidden="true"></span>
+                            <span class="skills-copy">
+                                <span class="skills-title">Power Platform Engineering</span>
+                                <span class="skills-meta">Builds scalable Power Platform solutions</span>
+                            </span>
+                        </div>
+                        <div class="skills-item">
+                            <span class="skills-dot" aria-hidden="true"></span>
+                            <span class="skills-copy">
+                                <span class="skills-title">Azure Integration</span>
+                                <span class="skills-meta">Delivers secure API and data integration</span>
+                            </span>
+                        </div>
+                        <div class="skills-item">
+                            <span class="skills-dot" aria-hidden="true"></span>
+                            <span class="skills-copy">
+                                <span class="skills-title">Dynamics 365</span>
+                                <span class="skills-meta">Delivers structured CRM workflows</span>
+                            </span>
+                        </div>
+                        <div class="skills-item">
+                            <span class="skills-dot" aria-hidden="true"></span>
+                            <span class="skills-copy">
+                                <span class="skills-title">Data and Analytics</span>
+                                <span class="skills-meta">Delivers insights for better decisions</span>
+                            </span>
+                        </div>
+                        <div class="skills-item">
+                            <span class="skills-dot" aria-hidden="true"></span>
+                            <span class="skills-copy">
+                                <span class="skills-title">Web Applications</span>
+                                <span class="skills-meta">Builds responsive web apps and portals</span>
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Featured Projects -->
-        <section class="bg-gray-50 dark:bg-gray-950 py-16">
+        <section class="bg-gray-50 dark:bg-gray-950 section-block">
             <div class="container-narrow">
-                <h2 class="text-3xl font-bold text-center mb-12">Featured Projects</h2>
+                <h2 class="section-title text-center mb-2">Featured Projects</h2>
+                <p class="section-subtitle text-center mx-auto mb-10">Production-ready solutions across operations, analytics, and customer experience, with a focus on practical implementation and delivery quality.</p>
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 auto-rows-fr" id="featured-projects">
                     <!-- Projects will be loaded from JSON -->

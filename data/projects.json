@@ -3,60 +3,36 @@
         "id": "sweetcrust",
         "name": "SweetCrust Bakery Portal",
         "techStack": "Power Apps, Dataverse, Power Automate",
-        "summary": "A comprehensive customer portal for SweetCrust Bakery enabling online orders, delivery tracking, and customer relationship management.",
-        "thumbnail": "assets/images/placeholder-sweetcrust.png",
+        "cardSummary": "A comprehensive customer portal for SweetCrust Bakery enabling online orders, delivery tracking, and customer relationship management. It streamlined order operations, reduced manual coordination effort, and improved visibility across the full customer delivery lifecycle.",
+        "thumbnail": "assets/images/placeholder-sweetcrust.svg",
         "url": "projects/sweetcrust/index.html",
-        "featured": true,
-        "description": "Designed and built a full-featured portal using Power Apps Canvas and Dataverse, integrating with Power Automate for order processing workflows.",
-        "outcomes": [
-            "Automated order processing, reducing manual data entry by 80%",
-            "Real-time delivery tracking visible to customers",
-            "Increased repeat customer engagement by 45%"
-        ]
+        "featured": true
     },
     {
         "id": "powerapps-incident",
         "name": "Power Apps Incident Management",
         "techStack": "Model-Driven Apps, Dataverse, Power Automate, Power BI",
-        "summary": "Enterprise incident management system built on Dynamics 365 platform for a mining company with real-time dashboards and automated escalations.",
-        "thumbnail": "assets/images/placeholder-incident.png",
+        "cardSummary": "Enterprise incident management system built on Dynamics 365 platform for a mining company with real-time dashboards and automated escalations. It improved response coordination, reduced administrative overhead, and strengthened operational risk visibility across teams.",
+        "thumbnail": "assets/images/placeholder-incident.svg",
         "url": "projects/powerapps-incident/index.html",
-        "featured": true,
-        "description": "A model-driven application supporting incident tracking, escalation workflows, and compliance reporting across multiple departments.",
-        "outcomes": [
-            "Reduced incident response time by 60%",
-            "Improved compliance reporting accuracy",
-            "Real-time visibility across all operational areas"
-        ]
+        "featured": true
     },
     {
         "id": "powerbi-sales",
         "name": "Power BI Sales Analytics",
         "techStack": "Power BI, Power Query, DAX, Excel",
-        "summary": "Advanced analytics dashboard providing sales leadership with real-time insights into pipeline, forecast, and revenue metrics.",
-        "thumbnail": "assets/images/placeholder-powerbi.png",
+        "cardSummary": "Advanced analytics dashboard providing sales leadership with real-time insights into pipeline, forecast, and revenue metrics. It reduced reporting effort, improved forecast confidence, and enabled faster decision-making from a single trusted data view.",
+        "thumbnail": "assets/images/placeholder-powerbi.svg",
         "url": "projects/powerbi-sales/index.html",
-        "featured": true,
-        "description": "Multi-dimensional reporting solution with drill-through capabilities, role-level security, and automated refresh workflows.",
-        "outcomes": [
-            "Improved forecast accuracy by 35%",
-            "Reduced reporting time from 2 days to instant dashboards",
-            "Enabled data-driven decision making at all levels"
-        ]
+        "featured": true
     },
     {
         "id": "azure-api",
         "name": "Azure API & Logic Apps Integration",
         "techStack": "Azure Functions, Logic Apps, Azure Service Bus, C#",
-        "summary": "Microservices architecture for integrating legacy ERP systems with modern cloud applications using Azure serverless components.",
-        "thumbnail": "assets/images/placeholder-azure.png",
+        "cardSummary": "Microservices architecture for integrating legacy ERP systems with modern cloud applications using Azure serverless components.",
+        "thumbnail": "assets/images/placeholder-azure.svg",
         "url": "projects/azure-api/index.html",
-        "featured": false,
-        "description": "Scalable API layer built on Azure Functions with event-driven orchestration via Logic Apps and Service Bus for reliable message processing.",
-        "outcomes": [
-            "Achieved 99.95% uptime SLA",
-            "Reduced integration costs by 40% through serverless architecture",
-            "Enabled real-time data sync across 5+ enterprise systems"
-        ]
+        "featured": false
     }
 ]
